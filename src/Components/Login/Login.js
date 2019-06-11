@@ -7,13 +7,20 @@ class Login extends Component {
         password: ""
     }
 
+    handleChange = (e) => {
+        this.setState({
+            [e.currentTarget.name]: e.currentTarget.value
+        })
+    }
+
     render(){
+        const { username, password } = this.state
         return(
             <div>
                 <form>
-                    <input type="text" name="username" placeholder="Username"></input>
-                    <input type="password" name="password" placeholder="Password"></input>
-                    <button>Login</button>
+                    <input type="text" name="username" placeholder="Username" value={username} onChange={this.handleChange}></input><br/>
+                    <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleChange}></input><br/>
+                    <button type="submit" value="Submit">Login</button>
                 </form>
             </div>
         )
