@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dtla', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dtlagi', {
   useNewUrlParser: true,
   UseCreateIndex: true,
   useFindAndModify: true
@@ -17,8 +17,4 @@ mongoose.connection.on('error', (err) => {
 
 mongoose.connection.on('disconnected', () => {
   console.log('Mongoose is disconnected')
-<<<<<<< HEAD
 });
-=======
-});
->>>>>>> master
