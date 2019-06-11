@@ -8,6 +8,7 @@
     "mongoose": "^5.5.14",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
+    "react-google-maps": "^9.4.5",
     "react-scripts": "3.0.1"
   },
   "scripts": {
@@ -36,12 +37,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ralphie94/dtla.git"
+    "url": "git+https://github.com/jomarmen10/dtla.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/ralphie94/dtla/issues"
+    "url": "https://github.com/jomarmen10/dtla/issues"
   },
-  "homepage": "https://github.com/ralphie94/dtla#readme"
+  "homepage": "https://github.com/jomarmen10/dtla#readme"
 }
