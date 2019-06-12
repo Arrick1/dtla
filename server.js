@@ -12,6 +12,8 @@ app.use(express.urlencoded({ extended: false }));
 
 
 const authRouter = require('./routes/auth')
+const serviceRouter =require('./routes/services')
+
 const corsOptions = {
   origin: 3000,
   credentials: true,

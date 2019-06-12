@@ -1,15 +1,31 @@
 import React, { Component } from "react";
-import * as routes from "../../constants/routes";
-import "./Navbar.css";
+import { NavLink } from 'react-router-dom'
 
-class Navbar extends Component {
+import * as routes from '../../constants/routes'
+
+
+
+// import "./Navbar.css";
+
+// -----------> Reactstap Styling 
+import { Navbar, Nav, Button, NavDropdown, Container } from 'react-bootstrap'
+
+class NavbarItem extends Component {
     render(){
         return(
-            <div className="nav">
-                <button className="login-btn" onClick={routes.LOGIN}>Login</button>
+            <div>
+                <Navbar bg="dark" variant="dark" >
+                <NavLink to={routes.HOME}><Navbar.Brand>Trace Help</Navbar.Brand></NavLink>
+                    <Nav> 
+                        <NavLink to={routes.LOGIN}> <Button> Login</Button> </NavLink>  
+
+                    </Nav>
+
+
+                </Navbar>
             </div>
         )
     }
 }
 
-export default Navbar;
+export default NavbarItem;
