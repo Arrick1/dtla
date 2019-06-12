@@ -6,12 +6,19 @@ export class MapContainer extends Component {
   state = {
     address: ''
   }
+
+  inputHandle = (e) => {
+    this.setState({
+      [e.currentTarget.name]: e.currentTarget.value
+    })
+  }
+
   render(){
     const { address } = this.state
     return(
       <div>
         <form>
-          <input name='address' placeholder='enter location' value={address}></input>
+          <input type="text" name="address" placeholder="Address" value={address} onChange={this.inputHandle}></input>
           <button type='submit'>Submit</button>
         </form>
         <Map
