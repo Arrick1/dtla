@@ -76,9 +76,6 @@ router.get('/', async(req,res)=>{
     }
 })
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 
 
 /* <------- User Profile Route--------> */
@@ -99,4 +96,3 @@ router.get('/profile', async (req, res) => {
 
 
 module.exports = router;
->>>>>>> master
