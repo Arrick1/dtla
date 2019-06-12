@@ -12,16 +12,12 @@ app.use(express.urlencoded({ extended: false }));
 
 
 const authRouter = require('./routes/auth')
-<<<<<<< HEAD
-const serviceRouter = require('./routes/services')
-=======
 const corsOptions = {
   origin: 3000,
   credentials: true,
   optionsSuccessStatus: 200
 }
 
->>>>>>> master
 
 app.use(cors(corsOptions))
 app.use(logger('dev'));
