@@ -6,6 +6,8 @@ const cors = require('cors')
 const session = require("express-session")
 require('dotenv').config()
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 
 const authRouter = require('./routes/auth')
@@ -24,9 +26,23 @@ app.use(session({
 
 app.get('/', (req, res) => {
     res.send('hello')
-}) 
+})
 
 app.use('/auth', authRouter);
+
+
+app.post('/', async(req,res) => {
+  try{
+    const comment = await User.create(req.body)
+    res.json({
+      success:true,
+      comment
+    })
+  }catch(err){
+    res.json(err)
+  }
+})
+
 
 
 app.listen(3010, () => {
