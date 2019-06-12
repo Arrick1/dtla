@@ -1,20 +1,35 @@
 const express = require("express")
 const app = express()
-const mongoose = require('mongoose')
-require('./db/db')
-const User = require('./model/User')
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const cors = require('cors')
+const session = require("express-session")
+require('dotenv').config()
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.get('/', async(req, res) => {
-  try{
-    const getUser = await User.find({})
-    res.json({getUser})
-  }catch(err){
-    return err
-  }
+
+const authRouter = require('./routes/auth')
+
+
+app.use(cors())
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(session({
+  resave:false,
+  secret:"arrick is cool",
+  saveUninitialized: false
+}))
+
+app.get('/', (req, res) => {
+    res.send('hello')
 })
+
+app.use('/auth', authRouter);
+
 
 app.post('/', async(req,res) => {
   try{
