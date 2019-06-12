@@ -31,18 +31,6 @@ app.get('/', (req, res) => {
 app.use('/auth', authRouter);
 
 
-app.post('/', async(req,res) => {
-  try{
-    const comment = await User.create(req.body)
-    res.json({
-      success:true,
-      comment
-    })
-  }catch(err){
-    res.json(err)
-  }
-})
-
 
 
 app.listen(3010, () => {
