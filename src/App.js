@@ -4,8 +4,7 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 
 /* <------- Imported Components -------> */
-import Profile from './components/Profile/Profile'
-import  AddService from './components/AddService/AddService' 
+// import  AddService from './components/AddService/AddService' 
 import MapContainer from './components/MapContainer/MapContainer'
 // import CreateUser from './components/CreateUser/CreateUser'
 import Login from './components/Login/Login'
