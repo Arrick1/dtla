@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
+import Geocode from "react-geocode"
+
+Geocode.setApiKey("AIzaSyDw68l0_UrWCKsy2EFOkYyWlcV3rtSLy34")
 
 
 export class MapContainer extends Component {
