@@ -14,8 +14,12 @@ class NavbarItem extends Component {
     render(){
         return(
             <div>
-                <Navbar bg="dark" variant="dark" >
-                <NavLink to={routes.HOME}><Navbar.Brand>Trace Help</Navbar.Brand></NavLink>
+                <Navbar bg="white" variant="dark" >
+                <NavLink to={routes.HOME}>
+                    <Navbar.Brand>
+                        <img className="brandLogo" src='/images/LOGO_PNG.png'></img>
+                    </Navbar.Brand>
+                </NavLink>
                     <Nav> 
                         <NavLink to={routes.LOGIN}> <Button> Login</Button> </NavLink>  
 
