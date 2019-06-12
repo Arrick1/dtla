@@ -4,10 +4,10 @@ import Navbar from "./Components/Navbar/Navbar";
 
 
 /* <------- Imported Components -------> */
-import AddService from './Components/AddService/AddService'
-import MapContainer from './Components/MapContainer/MapContainer'
-import CreateUser from './Components/CreateUser/CreateUser'
-import Login from './Components/Login/Login'
+import  AddService from './components/AddService/AddService' 
+import MapContainer from './components/MapContainer/MapContainer'
+import CreateUser from './components/CreateUser/CreateUser'
+import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 
 
