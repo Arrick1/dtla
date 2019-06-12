@@ -39,6 +39,11 @@ class AddService extends Component {
     })
   }
 
+  submitHandler = (e) => {
+    e.preventdefault()
+    this.props.createService(this.state)
+  }
+
   render(){
     const { name, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
     return(
@@ -51,29 +56,27 @@ class AddService extends Component {
           <input type='text' placeholder='phone' name='phone' value={phone} onChange={this.inputHandler}></input>
           <input type='text' placeholder='email' name='email' value={email} onChange={this.inputHandler}></input>
           <input type='text' placeholder='web' name='web' value={web} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='day' name='day' value={day} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='hours' name='hours' value={hours} onChange={this.inputHandler}></input>
           <input type='text' placeholder='eligibility' name='eligibility' value={eligibility} onChange={this.inputHandler}></input>
           <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
 
           {dayArr.map((d,i)=>{
             return <>
-            <strong key={i} value={d} name='day'>{d}</strong>
+              <strong key={i} value={d} name='day'>{d}</strong>
 
-            <select onChange={this.openHandler} name='opening'>
-              {time.map((t,i)=>{
-                return <option  key={i} value={t} >{t}am</option>
-              })}
-            </select>
-            to
-            <select onChange={this.closingHandler} name='closing'>
-              {time.map((t,i)=>{
-                return <option key={i} value={t} >{t}pm</option>
-              })}
-            </select>
+              <select onChange={this.openHandler} name='opening'>
+                {time.map((t,i)=>{
+                  return <option  key={i} value={t} >{t}am</option>
+                })}
+              </select>
+              to
+              <select onChange={this.closingHandler} name='closing'>
+                {time.map((t,i)=>{
+                  return <option key={i} value={t} >{t}pm</option>
+                })}
+              </select>
             </>
           })}
-
+          <button type='Submit'>Submit</button>
         </form>
       </div>
     )

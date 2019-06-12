@@ -9,23 +9,14 @@ export class MapContainer extends Component {
     address: ''
   }
 
-  inputHandle = (e) => {
-    this.setState({
-      [e.currentTarget.name]: e.currentTarget.value
-    })
-  }
-
   render(){
     const { address } = this.state
     console.log(this.props.place)
     return(
       <div>
-        <form>
-          <input type="text" name="address" placeholder="Address" value={address} onChange={this.inputHandle}></input>
-          <button type='submit'>Submit</button>
-        </form>
-        <Place />
         <div className="map">
+        <Place />
+        </div>     
         <Map
           google={this.props.google}
           initialCenter={{
@@ -35,8 +26,9 @@ export class MapContainer extends Component {
           style={{width: "1055px", height: "620px"}}
           zoom={13}
         />
-        </div>
+          <div className="sort"></div>
         <Marker/>
+
       </div>
     )
   }

@@ -37,14 +37,18 @@ router.post('/login', async (req, res) =>{
     try {
         const foundUser = await User.findOne({username: req.body.username})
         console.log(foundUser,"<==== found user")
-        if(foundUser.validPassword(req.body.password)){
-            req.session.userId = foundUser._id;
-            req.session.logged = true
-            console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
-            res.json({
-                data: foundUser,
-                success: foundUser ? true : false
-            })
+        if(foundUser){
+            if(foundUser.validPassword(req.body.password)){
+                req.session.userId = foundUser._id;
+                req.session.logged = true
+                console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
+                res.json({
+                    data: foundUser,
+                    success: foundUser ? true : false
+                })
+            }else {
+                res.json({error: "problem logging in"})
+            }
         }
     } catch (err) {
         res.json(err)
@@ -66,17 +70,17 @@ router.get('/logout', (req, res) => {
     })
   })
 
-router.get('/', async(req,res)=>{
-    try{
-        const getUser = await User.find({})
-        res.json({getUser})
-    }catch(err){
-        return err
-    }
-})
 
 
 
+  router.get('/', async(req,res)=>{
+      try{
+          const getUser = await User.find({})
+          res.json({getUser})
+      }catch(err){
+          return err
+      }
+  })
 /* <------- User Profile Route--------> */
 router.get('/profile', async (req, res) => {
     try {
