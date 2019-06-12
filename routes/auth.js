@@ -3,17 +3,21 @@ const router = express.Router();
 const bcrypt = require("bcryptjs")
 require('../db/db')
 
+
+
 const User = require('../model/User')
 
 
 /* <------- Register User Route--------> */
-router.post('/register', async (req, res) =>{
+router.post('/', async (req, res) =>{
     try {
         const createdUser = await User.create(req.body);
         console.log(createdUser)
         if(createdUser){
             req.session.logged = true;
             req.session.userId = createdUser._id
+            console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
+
         }
         res.json({
             data: createdUser,
@@ -23,7 +27,7 @@ router.post('/register', async (req, res) =>{
     } catch (err) {
         console.log(err)
         res.json({err})
-        
+
     }
 })
 
@@ -36,13 +40,15 @@ router.post('/login', async (req, res) =>{
         if(foundUser.validPassword(req.body.password)){
             req.session.userId = foundUser._id;
             req.session.logged = true
+            console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
+            
             res.json({
                 data: foundUser,
                 success: foundUser ? true : false
             })
-        } 
+        }
     } catch (err) {
-        res.json(err)  
+        res.json(err)
     }
 })
 

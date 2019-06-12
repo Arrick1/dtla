@@ -2,16 +2,14 @@ const mongoose = require('mongoose');
 
 const ServicesSchema = mongoose.Schema({
     name: String,
-    orgName: String,
-    address: {type: String, required: true},
     city: String,
     state: String,
-    zip: Number,
-    phone: Number,
+    zip: String,
+    phone: String,
     email: String,
     web: String,
-    day: String,
-    hours: Number,
+    day: [String],
+    hours: [String],
     eligibility: String,
     description: String
 });
