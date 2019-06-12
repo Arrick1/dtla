@@ -11,14 +11,14 @@ router.post('/register', async (req, res) =>{
     try {
         const createdUser = await User.create(req.body);
         console.log(createdUser)
-        // if(createdUser){
-        //     req.session.logged = true;
-        //     req.session.userId = createdUser._id
-        // }
+        if(createdUser){
+            req.session.logged = true;
+            req.session.userId = createdUser._id
+        }
         res.json({
             data: createdUser,
-            // logged: req.session.logged,
-            // success: true
+            logged: req.session.logged,
+            success: true
         })
     } catch (err) {
         console.log(err)
@@ -26,6 +26,19 @@ router.post('/register', async (req, res) =>{
         
     }
 })
+
+
+/* <------- Login User Route-------> */
+router.post('/login', async (req, res) =>{
+    try {
+        const foundUser = await User.findOne({username: req.body.username})
+            console.log(foundUser,"<==== found user")
+        
+    } catch (err) {
+        
+    }
+})
+
 
 router.get('/', async(req,res)=>{
     try{
