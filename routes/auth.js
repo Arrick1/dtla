@@ -32,7 +32,11 @@ router.post('/register', async (req, res) =>{
 router.post('/login', async (req, res) =>{
     try {
         const foundUser = await User.findOne({username: req.body.username})
-            console.log(foundUser,"<==== found user")
+        console.log(foundUser,"<==== found user")
+        if(foundUser.validPassword(req.body.password)){
+            req.session.userId = foundUser._id;
+            req.session.logged = true
+        }
         
     } catch (err) {
         
