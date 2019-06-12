@@ -6,14 +6,17 @@ import MapContainer from './Components/MapContainer/MapContainer'
 
 class App extends Component {
   state ={
-    user: ''
+    user: '',
+    location: ''
   }
 
 
   render(){
     return(
       <div>
-        <MapContainer />
+        <div className="mapContainer">
+          <MapContainer />
+        </div>
       </div>
     )
   }
