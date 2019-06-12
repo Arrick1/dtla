@@ -36,13 +36,30 @@ router.post('/login', async (req, res) =>{
         if(foundUser.validPassword(req.body.password)){
             req.session.userId = foundUser._id;
             req.session.logged = true
-        }
-        
+            res.json({
+                data: foundUser,
+                success: foundUser ? true : false
+            })
+        } 
     } catch (err) {
-        
+        res.json(err)  
     }
 })
 
+
+/* <------- Logout User Route--------> */
+router.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+      if(err){
+        res.json({err});
+      } else {
+        res.json({
+          success: true,
+          message: "logged out!"
+        });
+      }
+    })
+  })
 
 router.get('/', async(req,res)=>{
     try{
