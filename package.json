@@ -3,12 +3,22 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "bcrypt": "^3.0.6",
+    "bcryptjs": "^2.4.3",
     "bootstrap": "^4.3.1",
+    "cookie-parser": "^1.4.4",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
+    "express-session": "^1.16.1",
+    "jquery": "^3.4.1",
     "mongoose": "^5.5.14",
+    "morgan": "^1.9.1",
+    "popper.js": "^1.15.0",
     "react": "^16.8.6",
+    "react-bootstrap": "^1.0.0-beta.9",
     "react-dom": "^16.8.6",
     "react-google-maps": "^9.4.5",
+    "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1"
   },
   "scripts": {
@@ -37,12 +47,12 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jomarmen10/dtla.git"
+    "url": "git+https://github.com/Arrick1/dtla.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jomarmen10/dtla/issues"
+    "url": "https://github.com/Arrick1/dtla/issues"
   },
-  "homepage": "https://github.com/jomarmen10/dtla#readme"
+  "homepage": "https://github.com/Arrick1/dtla#readme"
 }
