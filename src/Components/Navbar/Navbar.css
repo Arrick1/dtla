@@ -3,12 +3,6 @@
     height: 48px;
     border-radius: 18px;
     border: solid 1px #454545;
-    background-color: #000000;
-    color: white;
-}
-
-.nav {
-    display: flex;
-    justify-content: flex-end;
-    align-self: center;
+    background-color: #252525;
+    color: #ffffff;
 }

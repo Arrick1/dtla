@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom'
-
 import * as routes from '../../constants/routes'
+import "./Navbar.css"
 
 
 
@@ -14,10 +14,10 @@ class NavbarItem extends Component {
     render(){
         return(
             <div>
-                <Navbar bg="dark" variant="dark" >
+                <Navbar bg="light">
                 <NavLink to={routes.HOME}><Navbar.Brand>Trace Help</Navbar.Brand></NavLink>
                     <Nav> 
-                        <NavLink to={routes.LOGIN}> <Button> Login</Button> </NavLink>  
+                        <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink>  
 
                     </Nav>
 
