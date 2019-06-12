@@ -14,7 +14,9 @@ class AddService extends Component {
   	email:"",
   	web:"",
   	day:[],
-  	hours:[],
+    opening: [],
+    closing: [],
+    hoursTest: '',
   	eligibility:"",
   	description:""
   }
@@ -22,6 +24,18 @@ class AddService extends Component {
   inputHandler = (e) => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value
+    })
+  }
+
+  openHandler = (e) => {
+    this.setState({
+      opening: [...this.state.opening, e.currentTarget.value]
+    })
+  }
+
+  closingHandler = (e) => {
+    this.setState({
+      closing: [...this.state.closing, e.currentTarget.value]
     })
   }
 
@@ -43,23 +57,22 @@ class AddService extends Component {
           <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
 
           {dayArr.map((d,i)=>{
-            return d
+            return <>
+            <strong key={i} value={d} name='day'>{d}</strong>
 
+            <select onChange={this.openHandler} name='opening'>
+              {time.map((t,i)=>{
+                return <option  key={i} value={t} >{t}am</option>
+              })}
+            </select>
+            to
+            <select onChange={this.closingHandler} name='closing'>
+              {time.map((t,i)=>{
+                return <option key={i} value={t} >{t}pm</option>
+              })}
+            </select>
+            </>
           })}
-
-          <select>
-            {time.map((t,i)=>{
-              return <option key={i}>{t}am</option>
-            })}
-          </select>
-
-          to
-
-          <select>
-            {time.map((t,i)=>{
-              return <option key={i}>{t}pm</option>
-            })}
-          </select>
 
         </form>
       </div>

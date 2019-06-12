@@ -27,7 +27,6 @@ class App extends Component {
         currentUser: parsedUser
       })
     }
-    console.log(parsedUser)
   }
 
   doSetCurrentUser = (user) =>

@@ -41,7 +41,6 @@ router.post('/login', async (req, res) =>{
             req.session.userId = foundUser._id;
             req.session.logged = true
             console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
-            
             res.json({
                 data: foundUser,
                 success: foundUser ? true : false
@@ -76,9 +75,6 @@ router.get('/', async(req,res)=>{
     }
 })
 
-<<<<<<< HEAD
-module.exports = router;
-=======
 
 
 /* <------- User Profile Route--------> */
@@ -88,15 +84,14 @@ router.get('/profile', async (req, res) => {
         res.json({
             user,
             currentUser: req.session.userId,
-            logged: req.session.logged 
+            logged: req.session.logged
         })
     } catch (err) {
         res.send({err})
         console.log({err})
-        
+
     }
 })
 
 
 module.exports = router;
->>>>>>> master
