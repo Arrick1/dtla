@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { Switch, Route, withRouter } from 'react-router-dom'
+import { Switch, Route, withRouter } from 'react-router-dom';
+import Navbar from "./Components/Navbar/Navbar";
 
 
 /* <------- Imported Components -------> */
@@ -75,6 +76,7 @@ class App extends Component {
     const {currentUser} = this.state
     return(
       <div>
+        <Navbar />
         {/* <Switch>
           <Route exact path={routes.ROOT}/>
           <Route exact path={routes.LOGIN}/>
@@ -93,11 +95,11 @@ class App extends Component {
           <Route exact path={`${routes.PROFILE}/:id`}/>
         <CreateUser />
         <Login />
-        </Switch>
+        </Switch> */}
         <div className="mapContainer">
           <MapContainer />
-        </div> */}
-        <AddService />
+        </div>
+        {/* <AddService /> */}
       </div>
     )
   }
