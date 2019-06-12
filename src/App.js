@@ -34,7 +34,7 @@ class App extends Component {
     this.setState({
       currentUser: user
     })
-  
+
   doLoginUser = async (info) => {
     const loginResponse = await fetch('/auth/login', {
       method: 'POST',
@@ -58,9 +58,7 @@ class App extends Component {
       }
   }
 
-<<<<<<< HEAD
 
-=======
   doLogout = async () =>{
     await fetch('/auth/logout')
       localStorage``.clear()
@@ -70,8 +68,8 @@ class App extends Component {
       })
       this.props.history.push(routes.LOGIN)
     }
-  
->>>>>>> master
+
+
 
   render(){
     const {currentUser} = this.state
@@ -79,16 +77,14 @@ class App extends Component {
       <div>
         {/* <Switch>
           <Route exact path={routes.ROOT}/>
-<<<<<<< HEAD
           <Route exact path={routes.LOGIN}/>
           <CreateUser />
           <Login />
           </Switch>
           <div className="mapContainer">
-=======
-          <Route exact path={routes.LOGIN} render={() => 
+          <Route exact path={routes.LOGIN} render={() =>
             <Login
-              isLogged={this.state.log} 
+              isLogged={this.state.log}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
               currentUser={currentUser}
@@ -99,7 +95,6 @@ class App extends Component {
         <Login />
         </Switch>
         <div className="mapContainer">
->>>>>>> master
           <MapContainer />
         </div> */}
         <AddService />
