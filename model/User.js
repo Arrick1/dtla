@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
 })
 
 UserSchema.methods.hashPassword = function(password){
-    return bcrypt.hashSync(password, bcrypt.genSaltSync(10)) 
+    return bcrypt.hashSync(password, bcrypt.genSaltSync(10))
 }
 
 UserSchema.methods.validPassword = function(password){
