@@ -14,17 +14,64 @@ import * as routes from './constants/routes'
 
 class App extends Component {
   state ={
-    currentUSer: {},
+    currentUser: {},
     logged: false,
     location: ''
+  }
+
+  async componentDidMount(){
+    const user = await localStorage.getItem('currrent')
+    const parsedUser = await JSON.parse(user)
+    if(user){
+      this.setState({
+        currentUser: parsedUser
+      })
+    }
+    console.log(parsedUser)
   }
 
   doSetCurrentUser = (user) =>
     this.setState({
       currentUser: user
     })
+  
+  doLoginUser = async (info) => {
+    const loginResponse = await fetch('/auth/login', {
+      method: 'POST',
+      credentials: 'include',
+      body: JSON.stringify(info),
+      headers: {
+        'Content-Type' : 'application/json'
+      }
+    })
+    const parsedResponse = await loginResponse.json()
+      if(parsedResponse.data){
+        this.doSetCurrentUser(parsedResponse.data)
+        localStorage.setItem('current', JSON.stringify(parsedResponse.data))
+        this.setState({
+          logged: true,
+          currentUser: parsedResponse.data
+        })
 
+      } else{
+        console.log('not logged in')
+      }
+  }
 
+<<<<<<< HEAD
+
+=======
+  doLogout = async () =>{
+    await fetch('/auth/logout')
+      localStorage``.clear()
+      this.setState({
+        currentUser: {},
+        logged:false
+      })
+      this.props.history.push(routes.LOGIN)
+    }
+  
+>>>>>>> master
 
   render(){
     const {currentUser} = this.state
@@ -32,11 +79,27 @@ class App extends Component {
       <div>
         {/* <Switch>
           <Route exact path={routes.ROOT}/>
+<<<<<<< HEAD
           <Route exact path={routes.LOGIN}/>
           <CreateUser />
           <Login />
           </Switch>
           <div className="mapContainer">
+=======
+          <Route exact path={routes.LOGIN} render={() => 
+            <Login
+              isLogged={this.state.log} 
+              doLoginUser={this.doLoginUser}
+              doSetCurrentUser={this.doSetCurrentUser}
+              currentUser={currentUser}
+            />}
+          />
+          <Route exact path={`${routes.PROFILE}/:id`}/>
+        <CreateUser />
+        <Login />
+        </Switch>
+        <div className="mapContainer">
+>>>>>>> master
           <MapContainer />
         </div> */}
         <AddService />

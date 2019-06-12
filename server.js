@@ -12,9 +12,18 @@ app.use(express.urlencoded({ extended: false }));
 
 
 const authRouter = require('./routes/auth')
+<<<<<<< HEAD
 const serviceRouter = require('./routes/services')
+=======
+const corsOptions = {
+  origin: 3000,
+  credentials: true,
+  optionsSuccessStatus: 200
+}
 
-app.use(cors())
+>>>>>>> master
+
+app.use(cors(corsOptions))
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -32,18 +41,6 @@ app.get('/', (req, res) => {
 app.use('/auth', authRouter);
 app.use('/services', serviceRouter);
 
-
-app.post('/', async(req,res) => {
-  try{
-    const comment = await User.create(req.body)
-    res.json({
-      success:true,
-      comment
-    })
-  }catch(err){
-    res.json(err)
-  }
-})
 
 
 

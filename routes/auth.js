@@ -76,4 +76,27 @@ router.get('/', async(req,res)=>{
     }
 })
 
+<<<<<<< HEAD
 module.exports = router;
+=======
+
+
+/* <------- User Profile Route--------> */
+router.get('/profile', async (req, res) => {
+    try {
+        const user = await User.findById(req.params.id)
+        res.json({
+            user,
+            currentUser: req.session.userId,
+            logged: req.session.logged 
+        })
+    } catch (err) {
+        res.send({err})
+        console.log({err})
+        
+    }
+})
+
+
+module.exports = router;
+>>>>>>> master
