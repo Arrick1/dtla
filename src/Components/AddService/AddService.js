@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 
+
+const time = [1,2,3,4,5,6,7,8,9,10,11,12]
+const dayArr = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+
 class AddService extends Component {
   state = {
     name:"",
@@ -37,6 +41,26 @@ class AddService extends Component {
           <input type='text' placeholder='hours' name='hours' value={hours} onChange={this.inputHandler}></input>
           <input type='text' placeholder='eligibility' name='eligibility' value={eligibility} onChange={this.inputHandler}></input>
           <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
+
+          {dayArr.map((d,i)=>{
+            return d
+
+          })}
+
+          <select>
+            {time.map((t,i)=>{
+              return <option key={i}>{t}am</option>
+            })}
+          </select>
+
+          to
+
+          <select>
+            {time.map((t,i)=>{
+              return <option key={i}>{t}pm</option>
+            })}
+          </select>
+
         </form>
       </div>
     )

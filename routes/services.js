@@ -7,7 +7,7 @@ const User = require('../model/User')
 
 router.post('/', async(req,res)=>{
   try{
-    const findUser = await User.findById(req.session.realtorDbId || '5d0094cf0d6e3762ca0edb02');
+    const findUser = await User.findById(req.session.userId || '5d0094cf0d6e3762ca0edb02');
     const createService = await Services.create(req.body);
     findUser.services.push(createService);
     findUser.save();
@@ -26,10 +26,8 @@ router.post('/', async(req,res)=>{
 router.get('/', async(req, res)=>{
   try{
     const findServices = await Services.find({})
-    const findUser = await User.find({})
     res.json({
-      findServices,
-      findUser
+      findServices
     })
   }catch(err){
     return err

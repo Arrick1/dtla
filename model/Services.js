@@ -9,7 +9,10 @@ const ServicesSchema = mongoose.Schema({
     email: String,
     web: String,
     day: [String],
-    hours: [String],
+    hours: {
+      opening:[String],
+      closing:[String]
+    },
     eligibility: String,
     description: String
 });
