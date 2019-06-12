@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dtlagi', {
+mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost/dtla', {
   useNewUrlParser: true,
-  UseCreateIndex: true,
+  useCreateIndex: true,
   useFindAndModify: true
 });
 
