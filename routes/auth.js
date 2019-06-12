@@ -17,7 +17,6 @@ router.post('/', async (req, res) =>{
             req.session.logged = true;
             req.session.userId = createdUser._id
             console.log(req.session.userId, "<<<<<<<<<<<<<<<<userId")
-
         }
         res.json({
             data: createdUser,
