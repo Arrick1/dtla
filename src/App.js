@@ -3,6 +3,7 @@ import { Switch, Route, withRouter } from 'react-router-dom'
 
 
 /* <------- Imported Components -------> */
+import AddService from './Components/AddService/AddService'
 import MapContainer from './Components/MapContainer/MapContainer'
 import CreateUser from './Components/CreateUser/CreateUser'
 import Login from './Components/Login/Login'
@@ -33,7 +34,7 @@ class App extends Component {
     this.setState({
       currentUser: user
     })
-  
+
   doLoginUser = async (info) => {
     const loginResponse = await fetch('/auth/login', {
       method: 'POST',
@@ -57,6 +58,7 @@ class App extends Component {
       }
   }
 
+
   doLogout = async () =>{
     await fetch('/auth/logout')
       localStorage``.clear()
@@ -66,17 +68,23 @@ class App extends Component {
       })
       this.props.history.push(routes.LOGIN)
     }
-  
+
+
 
   render(){
     const {currentUser} = this.state
     return(
       <div>
-        <Switch>
+        {/* <Switch>
           <Route exact path={routes.ROOT}/>
-          <Route exact path={routes.LOGIN} render={() => 
+          <Route exact path={routes.LOGIN}/>
+          <CreateUser />
+          <Login />
+          </Switch>
+          <div className="mapContainer">
+          <Route exact path={routes.LOGIN} render={() =>
             <Login
-              isLogged={this.state.log} 
+              isLogged={this.state.log}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
               currentUser={currentUser}
@@ -88,7 +96,8 @@ class App extends Component {
         </Switch>
         <div className="mapContainer">
           <MapContainer />
-        </div>
+        </div> */}
+        <AddService />
       </div>
     )
   }
