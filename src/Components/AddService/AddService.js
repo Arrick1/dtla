@@ -84,6 +84,15 @@ class AddService extends Component {
             className="serviceContainer"
             onSubmit={this.submitHandler}>
 
+            <Form.Label className='display'>Categories</Form.Label>
+
+            <select name='categories' onChange={this.categorieHandler}>
+              <option value='food'>food</option>
+              <option value='selfParking'>Self Parking</option>
+              <option value='shower'>shower</option>
+              <option value='jobs'>jobs</option>
+            </select>
+
             <Form.Group>
               <Form.Label className='display'>Organization Name</Form.Label>
               <input
@@ -225,6 +234,8 @@ class AddService extends Component {
             className="serviceButton"
             type='Submit'
             onClick={this.submitHandler}>Submit</button>
+
+            
         </Form>
       </Container>
       </div>
