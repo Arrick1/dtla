@@ -8,9 +8,16 @@ import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
 import AllServices from './components/AllServices/AllServices'
+
+import Footer from "./components/Footer/Footer"
+
+
+
 /* <------- React Bootstrap Components -------> */
 import { Col } from 'react-bootstrap'
 import './App.css';
+
+
 class App extends Component {
   state ={
     currentUser: {},
@@ -142,8 +149,11 @@ class App extends Component {
           <Route exact path={routes.ADDSERVICE} render={()=>
             <AddService createService={this.createService}/>}/>
         </Switch>
-
+        
         {/* <AllServices allServices={allServices}/> */}
+        <Footer />
+
+
       </div>
         <div className="grid-footer"></div>
       </div>
