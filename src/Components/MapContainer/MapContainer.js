@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import Place from "../Place/Place";
-import AllServices from '../AddService/AddService'
+import AllServices from '../AllServices/AllServices'
 
 
 export class MapContainer extends Component {
@@ -19,15 +19,15 @@ export class MapContainer extends Component {
     })
   }
 
-  categorieHandler = (e) => {
+  categoryHandler = (e) => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value
     })
   }
 
-  categorieSubmit = (e) => {
+  categorySubmit = (e) => {
     e.preventDefault()
-    this.props.fillterServices(this.state)
+    this.props.filterServices(this.state)
   }
 
   placeSubmit = (info) => {
@@ -35,7 +35,7 @@ export class MapContainer extends Component {
     //   lat: "",
     //   lng:""
     // })
-    console.log('placesubmit working')
+    console.log('placeSubmit working')
   }
 
   render(){
@@ -48,9 +48,9 @@ export class MapContainer extends Component {
 
         <Place placeSubmit={this.placeSubmit}/>          
 
-        <form onSubmit={this.categorieSubmit}>
+        <form onSubmit={this.categorySubmit}>
             sort
-            <select name='categories' onChange={this.categorieHandler}>
+            <select name='categories' onChange={this.categoryHandler}>
               <option value="all">all</option>
               <option value='food'>food</option>
               <option value='selfParking'>Self Parking</option>

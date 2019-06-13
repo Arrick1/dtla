@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-// import Navbar from "./Components/Navbar/Navbar";
 
 
 /* <------- Imported Components -------> */
@@ -13,7 +12,7 @@ import NavbarItem from './components/Navbar/Navbar'
 import AllServices from './components/AllServices/AllServices'
 
 
-
+/* <------- React Bootstrap Components -------> */
 import { Col } from 'react-bootstrap'
 
 
@@ -81,6 +80,7 @@ class App extends Component {
       this.props.history.push(routes.LOGIN)
     }
 
+
   createService = async(info) => {
     try{
       const createSer = await fetch('http://localhost:3010/services', {
@@ -115,7 +115,7 @@ class App extends Component {
     }
   }
 
-  fillterServices = async(info) => {
+  filterServices = async(info) => {
     try{
       console.log(info.categories)
       const fillServices = await fetch(`http://localhost:3010/services/${info.categories}`, {
@@ -149,21 +149,24 @@ class App extends Component {
       <div className="grid-main">
         <Switch>
 
-          <Route exact path={routes.HOME} render={() =><MapContainer fillterServices={this.fillterServices} allServices={allServices}/>}/>
-
+          <Route exact path={routes.HOME} render={() =>
+            <MapContainer 
+              filterServices={this.filterServices} 
+              allServices={allServices}/>}
+            />
 
           <Route exact path={routes.LOGIN} render={() =>
             <Login
               isLogged={this.state.logged}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
-
               currentUser={currentUser} />}/>
          
           <Route exact path={routes.ADDSERVICE} render={()=>
             <AddService createService={this.createService}/>}/>
 
         </Switch>
+        
         {/* <AllServices allServices={allServices}/> */}
 
       </div>
