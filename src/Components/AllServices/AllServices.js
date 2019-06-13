@@ -4,7 +4,6 @@ class AllServices extends Component {
 
   render(){
     const { allServices } = this.props
-    console.log(allServices )
     return(
       <div>
         {allServices.map((s,i)=>{

@@ -13,7 +13,8 @@ const ServicesSchema = mongoose.Schema({
     opening: [String],
     closing: [String],
     eligibility: String,
-    description: String
+    description: String,
+    categories:String
 });
 
 const Services = mongoose.model('Services', ServicesSchema);

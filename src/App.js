@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, withRouter } from 'react-router-dom';
-// import Navbar from "./Components/Navbar/Navbar";
 
 
 /* <------- Imported Components -------> */
@@ -10,10 +9,11 @@ import MapContainer from './components/MapContainer/MapContainer'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
-import AllServices from "./components/AllServices/AllServices"
+import AllServices from './components/AllServices/AllServices'
 import Footer from "./components/Footer/Footer"
 
 
+/* <------- React Bootstrap Components -------> */
 import { Col } from 'react-bootstrap'
 
 
@@ -81,39 +81,60 @@ class App extends Component {
       this.props.history.push(routes.LOGIN)
     }
 
-    createService = async(info) => {
-      try{
-        const createSer = await fetch('http://localhost:3010/services', {
-          method: 'POST',
-          credentials: 'include',
-          body: JSON.stringify(info),
-          headers: {
-            'Content-Type' : 'application/json'
-          }
-        })
-        const resCreate = await createSer.json()
-        if(resCreate.success){
-          this.setState({
-            allServices: [...this.setState.allServices, resCreate.createService]
-          })
-          this.props.history.push('/')
+
+  createService = async(info) => {
+    try{
+      const createSer = await fetch('http://localhost:3010/services', {
+        method: 'POST',
+        credentials: 'include',
+        body: JSON.stringify(info),
+        headers: {
+          'Content-Type' : 'application/json'
         }
-      }catch(err){
-        return err
-      }
-    }
-
-
-    getServices = async() => {
-      try{
-        const resServices = await fetch('http://localhost:3010/services', {
-          credentials: 'include'
+      })
+      const resCreate = await createSer.json()
+      if(resCreate.success){
+        this.setState({
+          allServices: [...this.setState.allServices, resCreate.createService]
         })
-        const parsedServices = await resServices.json()
-        return parsedServices
-      }catch(err){
+        this.props.history.push('/')
       }
+    }catch(err){
+      return err
     }
+  }
+
+
+  getServices = async() => {
+    try{
+      const resServices = await fetch('http://localhost:3010/services', {
+        credentials: 'include'
+      })
+      const parsedServices = await resServices.json()
+      return parsedServices
+    }catch(err){
+    }
+  }
+
+  filterServices = async(info) => {
+    try{
+      console.log(info.categories)
+      const fillServices = await fetch(`http://localhost:3010/services/${info.categories}`, {
+        credentials: 'include'
+      })
+      const fillParsed = await fillServices.json()
+      console.log(fillParsed.success)
+      if(fillParsed.success){
+        this.setState({
+          allServices: fillParsed.findServices
+        })
+      }
+
+    }catch(err){
+      return err
+    }
+  }
+
 
   render(){
     const {currentUser, allServices} = this.state
@@ -121,6 +142,7 @@ class App extends Component {
     return(
 
       <div className="grid-container">
+
       <div className="grid-nav">
         <NavbarItem />
       </div>
@@ -128,26 +150,29 @@ class App extends Component {
       <div className="grid-main">
         <Switch>
 
-          <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
-
+          <Route exact path={routes.HOME} render={() =>
+            <MapContainer 
+              filterServices={this.filterServices} 
+              allServices={allServices}/>}
+            />
 
           <Route exact path={routes.LOGIN} render={() =>
             <Login
               isLogged={this.state.logged}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
-
               currentUser={currentUser} />}/>
          
           <Route exact path={routes.ADDSERVICE} render={()=>
             <AddService createService={this.createService}/>}/>
 
         </Switch>
+        
         {/* <AllServices allServices={allServices}/> */}
         <Footer />
 
       </div>
-      <div className="grid-footer"></div>
+        <div className="grid-footer"></div>
       </div>
     )
   }
