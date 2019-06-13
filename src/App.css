@@ -1,33 +1,19 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.login-btn {
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: #000000;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+
+
+.brandLogo{
+  width: 198px;
+  height: 94px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.mapcontainer{
+  background: #000000
 }

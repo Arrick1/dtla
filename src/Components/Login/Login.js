@@ -8,7 +8,7 @@ class Login extends Component {
     state = {
         username: "",
         password: "",
-       
+        logged: false
     }
 
     handleChange = (e) => {
@@ -18,16 +18,13 @@ class Login extends Component {
     }
 
     loginHandler = (e) => {
-        // console.log(e)
-        // console.log('<------- Login handler hit')
         e.preventDefault();
         this.props.doLoginUser(this.state)
-        // console.log(this.state)
     }
 
     render(){
         const { username, password } = this.state
-        // console.log(this.props.currentUser)
+        console.log(this.props.currentUser)
         return(
             <div>
                 <form>

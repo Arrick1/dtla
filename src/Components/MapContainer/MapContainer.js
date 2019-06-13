@@ -13,7 +13,7 @@ export class MapContainer extends Component {
     const { address } = this.state
     console.log(this.props.place)
     return(
-      <div>
+      <div className="map-container">
         <div className="map">
         <Place />
         </div>     
