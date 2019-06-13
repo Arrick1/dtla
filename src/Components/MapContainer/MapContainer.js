@@ -47,7 +47,6 @@ export class MapContainer extends Component {
     return(
       <div className="mapContainer">
 
-
         <div className="map-wrapper">
           <div className="image">
             <div className="map-header">
@@ -85,6 +84,7 @@ export class MapContainer extends Component {
         </div>
         {/* <AllServices allServices={this.props.allServices}/> */}
         <div className="sort">
+
               <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
             </div>
           <Accordion defaultActiveKey="0">
