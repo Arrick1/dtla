@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 /* <----------- React components -----------> */
 import {Modal, Button, Form, FormGroup} from 'react-bootstrap'
@@ -41,9 +41,12 @@ class Login extends Component {
 
     render(){
         const { username, password } = this.state
+        const { isLogged } = this.props
         console.log(this.props.currentUser)
         return(
-            <Container > 
+            isLogged ? <Redirect to={`/`} />
+            :
+              <Container > 
                 <div> <button onClick={this.showLoginModal}> login </button> </div>
                 
 
