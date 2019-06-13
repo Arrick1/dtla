@@ -26,8 +26,10 @@ export class MapContainer extends Component {
           }}
           style={{width: "100%", height: "100%"}}
           zoom={13}
+
         />
         </div>
+
 
       </div>
            <Marker/>

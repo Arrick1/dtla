@@ -12,7 +12,6 @@ import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
 
 
-
 import { Col } from 'react-bootstrap'
 
 
