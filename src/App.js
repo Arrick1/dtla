@@ -10,8 +10,7 @@ import MapContainer from './components/MapContainer/MapContainer'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
-import AllServices from './components/AllServices/AllServices'
-
+import AllServices from "./components/AllServices/AllServices"
 
 
 import { Col } from 'react-bootstrap'
@@ -81,59 +80,39 @@ class App extends Component {
       this.props.history.push(routes.LOGIN)
     }
 
-  createService = async(info) => {
-    try{
-      const createSer = await fetch('http://localhost:3010/services', {
-        method: 'POST',
-        credentials: 'include',
-        body: JSON.stringify(info),
-        headers: {
-          'Content-Type' : 'application/json'
+    createService = async(info) => {
+      try{
+        const createSer = await fetch('http://localhost:3010/services', {
+          method: 'POST',
+          credentials: 'include',
+          body: JSON.stringify(info),
+          headers: {
+            'Content-Type' : 'application/json'
+          }
+        })
+        const resCreate = await createSer.json()
+        if(resCreate.success){
+          this.setState({
+            allServices: [...this.setState.allServices, resCreate.createService]
+          })
+          this.props.history.push('/')
         }
-      })
-      const resCreate = await createSer.json()
-      if(resCreate.success){
-        this.setState({
-          allServices: [...this.setState.allServices, resCreate.createService]
-        })
-        this.props.history.push('/')
+      }catch(err){
+        return err
       }
-    }catch(err){
-      return err
     }
-  }
 
 
-  getServices = async() => {
-    try{
-      const resServices = await fetch('http://localhost:3010/services', {
-        credentials: 'include'
-      })
-      const parsedServices = await resServices.json()
-      return parsedServices
-    }catch(err){
-    }
-  }
-
-  fillterServices = async(info) => {
-    try{
-      console.log(info.categories)
-      const fillServices = await fetch(`http://localhost:3010/services/${info.categories}`, {
-        credentials: 'include'
-      })
-      const fillParsed = await fillServices.json()
-      console.log(fillParsed.success)
-      if(fillParsed.success){
-        this.setState({
-          allServices: fillParsed.findServices
+    getServices = async() => {
+      try{
+        const resServices = await fetch('http://localhost:3010/services', {
+          credentials: 'include'
         })
+        const parsedServices = await resServices.json()
+        return parsedServices
+      }catch(err){
       }
-
-    }catch(err){
-      return err
     }
-  }
-
 
   render(){
     const {currentUser, allServices} = this.state
@@ -147,22 +126,26 @@ class App extends Component {
 
         <div className="grid-main">
           <Switch>
-            <Route exact path={routes.HOME} render={() =><MapContainer fillterServices={this.fillterServices}          allServices={allServices}/>}/>
+
+            <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
+
+
             <Route exact path={routes.LOGIN} render={() =>
               <Login
                 isLogged={this.state.logged}
                 doLoginUser={this.doLoginUser}
                 doSetCurrentUser={this.doSetCurrentUser}
+
                 currentUser={currentUser} />}/>
 
             <Route exact path={routes.ADDSERVICE} render={()=>
               <AddService createService={this.createService}/>}/>
 
           </Switch>
-          <AllServices allServices={allServices}/>
+          {/* <AllServices allServices={allServices}/> */}
 
-        </div>
-        <div className="grid-footer"></div>
+      </div>
+      <div className="grid-footer"></div>
       </div>
     )
   }
