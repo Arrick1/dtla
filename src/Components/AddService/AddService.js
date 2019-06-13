@@ -7,7 +7,8 @@ import { Form, Col, Container } from 'react-bootstrap'
 
 
 const time = [1,2,3,4,5,6,7,8,9,10,11,12]
-const dayArr = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+const dayArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const stateAbbreviations = ['AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM','FL','GA', 'GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MH','MD','MA', 'MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND', 'MP','OH','OK','OR','PW','PA','PR','RI','SC','SD','TN','TX','UT','VT','VI','VA','WA','WV','WI','WY'];
 
 class AddService extends Component {
   state = {
@@ -58,9 +59,8 @@ class AddService extends Component {
     const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
     return(
       <div className='servicePageContainer'>
+      <div></div>
       <Container>
-
-
         <Form
           className="serviceContainer" 
           onSubmit={this.submitHandler}>
@@ -104,7 +104,6 @@ class AddService extends Component {
                 </Form.Control>
                 <input 
                   type='state' 
-                  placeholder='state'
                   name='state' 
                   value={state} 
                   onChange={this.inputHandler}/>
@@ -153,27 +152,34 @@ class AddService extends Component {
                 onChange={this.inputHandler}/>  
           </Form.Group>
           
+          <Form.Row>
           <Form.Group>
-            <Form.Label className='display'>Hours</Form.Label>
-          {dayArr.map((d,i)=>{
-            return <>
-              <strong key={i} value={d} name='day'>{d}</strong>
-
-              <select onChange={this.openHandler} name='opening'>
+            <Form.Label className='display'>Hours:</Form.Label>
+            {
+              dayArr.map((d,i)=>{
+                return <>
+                <Col>
+                  <strong key={i} value={d} name='day'>{d}</strong>
+                  <select onChange={this.openHandler} name='opening'>
                 {time.map((t,i)=>{
                   return <option  key={i} value={t} >{t}am</option>
                 })}
               </select>
               to
+            </Col>
+              <Col>
               <select onChange={this.closingHandler} name='closing'>
                 {time.map((t,i)=>{
                   return <option key={i} value={t} >{t}pm</option>
                 })}
               </select>
+              </Col>
             </>
           })}
 
           </Form.Group>
+
+          </Form.Row>
           
            
        

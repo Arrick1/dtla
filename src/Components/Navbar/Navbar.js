@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { NavLink } from 'react-router-dom'
 import * as routes from '../../constants/routes'
-import "./Navbar.css"
+
 
 // <----------- Reactstap Styling -----------> 
 import { Navbar, Nav, } from 'react-bootstrap'
