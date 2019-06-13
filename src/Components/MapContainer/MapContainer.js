@@ -36,7 +36,7 @@ export class MapContainer extends Component {
            <div className="category-wrapper">
             <h1 className="cat-header">Categories</h1>
               <div className="categories">
-                <img value='click' className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
+                <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
                 <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
                 <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
                 <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
@@ -47,16 +47,16 @@ export class MapContainer extends Component {
                 <img className="category" src="/images/care-check-checkup-905874.jpg"></img>
               </div>
            </div>
-           <div className="footer">
-           <div className="footer-items">
-           <div className="footer-links">
-             <a href="" className="links">Home</a>
-             <a href="" className="links">About</a>
-             <a href="" className="links">Contact</a>
-           </div>
-            <p className="copyright">SelfParkingLA.org &copy; 2018-2019</p>
-           </div>
-           </div>
+          {/* <div className="footer">
+            <div className="footer-items">
+              <div className="footer-links">
+                <a href="" className="links">Home</a>
+                <a href="" className="links">About</a>
+                <a href="" className="links">Contact</a>
+              </div>
+              <p className="copyright">SelfParkingLA.org &copy; 2018-2019</p>
+            </div>
+          </div> */}
         </div>
      
 

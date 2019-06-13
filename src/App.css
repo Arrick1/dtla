@@ -198,7 +198,7 @@
 
 .copyright {
   text-align: center;
-  font-size: 20px;
+  font-size: 24px;
 }
 
 .links {
@@ -206,8 +206,28 @@
   text-decoration: none;
   color: black;
   font-weight: bold;
+  padding: 15px;
 }
 
 .footer-links {
   text-align: center;
+  padding: 4rem;
 }
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.fab {
+  font-size: 5rem;
+  padding: 15px;
+}
+
+.fas {
+  font-size: 5rem;
+  padding: 15px;
+}
+

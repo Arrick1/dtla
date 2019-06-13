@@ -11,6 +11,7 @@ import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
 import AllServices from "./components/AllServices/AllServices"
+import Footer from "./components/Footer/Footer"
 
 
 import { Col } from 'react-bootstrap'
@@ -143,6 +144,7 @@ class App extends Component {
 
         </Switch>
         {/* <AllServices allServices={allServices}/> */}
+        <Footer />
 
       </div>
       <div className="grid-footer"></div>
