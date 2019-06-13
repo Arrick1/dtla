@@ -48,41 +48,40 @@ export class MapContainer extends Component {
       <div className="mapContainer">
 
 
-      <div className="map-wrapper">
-        <Place placeSubmit={this.placeSubmit}/>
-
+<div className="map-wrapper">
+        <div className="image">
+          <div className="map-header">
+            <Place placeSubmit={this.placeSubmit}/>          
+          </div>
         <form onSubmit={this.categorySubmit}>
-          sort
-          <select name='categories' onChange={this.categoryHandler}>
-            <option value="all">all</option>
-            <option value='food'>food</option>
-            <option value='selfParking'>Self Parking</option>
-            <option value='shower'>shower</option>
-            <option value='jobs'>jobs</option>
-          </select>
-          <button type='Submit'>Submit</button>
-        </form>
-
+            sort
+            <select name='categories' onChange={this.categoryHandler}>
+              <option value="all">all</option>
+              <option value='food'>food</option>
+              <option value='selfParking'>Self Parking</option>
+              <option value='shower'>shower</option>
+              <option value='jobs'>jobs</option>
+            </select>
+            <button type='Submit'>Submit</button>
+          </form>
+       
         <div className='map'>
           <Map
-            google={this.props.google}
-            initialCenter={{
-              lat: `34.0407`,
-              lng: `-118.2468`}}
-            center={{
-              lat: `${lat}`,
-              lng: `${lng}`
-            }}
+              google={this.props.google}
+              initialCenter={{
+              lat: 34.0407,
+              lng: -118.2468
+              }}
             style={{width: "100%", height: "100%"}}
             zoom={13}>
-            {/* <Marker
+            <Marker
               title={'The marker`s title will appear as a tooltip.'}
               name={'SOMA'}
-            position={{lat: `${lat}`, lng: `${lng}`}} /> */}
-          </Map>
+              position={{lat: `${lat}`, lng: `${lng}`}} />
+            </Map>
         </div>
 
-
+        </div>
       </div>
             {/* <AllServices allServices={this.props.allServices}/> */}
             <div className="sort">
