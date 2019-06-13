@@ -24,9 +24,6 @@
 }
 
 .mapContainer {
-
-  /* margin-top: 120px; */
-  /* background-color: white; */
   margin: 2vw 0 4vw 0;
   position: relative;
 }
@@ -53,22 +50,6 @@
   padding: inherit
 
 }
-
-/* .loginContainer {
-  margin-top: 120px;
-  background-color: blue;
-} */
-
-.login-btn {
-  justify-content: end;
-  width: 193px;
-  height: 48px;
-  border-radius: 18px;
-  border: solid 1px #454545;
-  background-color: #000000;
-  color: white;
-}
-
 
 .map {
   width: 1055px;
@@ -230,6 +211,31 @@
   background-image: url('/images/backlit-bright-dawn-697243.jpg')
 } */
 
+
+/* <-----------  NavBar CSS  -----------> */
+
+.navbarContainer{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #fff!important;
+  flex-flow: row nowrap;
+  padding: .5rem 1rem;
+}
+
+.login-btn {
+  justify-content: end;
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: #000000;
+  color: white;
+}
 
 
 /* <-----------  Login Modal CSS  -----------> */

@@ -48,8 +48,6 @@ class Login extends Component {
             :
               <Container > 
                 <div> <button onClick={this.showLoginModal}> login </button> </div>
-                
-
                 { 
                     this.state.loginModal ?
                     
@@ -95,6 +93,7 @@ class Login extends Component {
                 :<div/>
                
                 }
+                
             </Container>
         )
     }
