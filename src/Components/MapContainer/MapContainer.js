@@ -26,7 +26,6 @@ export class MapContainer extends Component {
           style={{width: "1055px", height: "620px"}}
           zoom={13}
         />
-          <div className="sort"></div>
         <Marker/>
 
       </div>
