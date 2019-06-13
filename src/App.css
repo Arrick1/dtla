@@ -266,7 +266,7 @@
   background: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg") no-repeat center center;
   background-size: cover;
  }
- 
+
  .location-box {
   width: 528px;
   height: 58px;
@@ -274,7 +274,7 @@
   border: solid 1px #454545;
   background-color: #f0f0f0;
  }
- 
+
  .map-header {
   width: 60rem;
   height: 137px;
@@ -282,6 +282,7 @@
   border-radius: 5px;
   border: solid 1px #979797;
   background-color: #ffffff;
+
   display: flex;
   flex-direction: row;
   justify-content: center;
