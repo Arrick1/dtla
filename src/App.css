@@ -31,13 +31,8 @@
   position: relative;
 }
 
-.UmYeah {
-  /* margin: 5vw; */
-
-  /* position: absolute; */
-  /* padding: 0s 5vw; */
-  /* background-size: cover; */
-  /* background-repeat: no-repeat; */
+.map-wrapper {
+ background: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg");
 }
 
 .map{
@@ -165,6 +160,7 @@
   height: 318.8px;
   border-radius: 16px;
   background-color: rgba(75, 75, 75, 0.45);
+  object-fit: cover;
 }
 
 .categories {
@@ -231,3 +227,20 @@
   padding: 15px;
 }
 
+.sort {
+  height: 83px;
+  background-color: #66adc8;
+}
+
+#dropdown-item-button {
+  background-color: transparent;
+  border-color: white;
+  width: 12rem;
+  border-radius: 15px;
+  margin-top: 1.3rem;
+  margin-left: 8rem;
+}
+
+.show {
+  width: 12rem;
+}
