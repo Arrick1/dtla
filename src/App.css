@@ -91,30 +91,7 @@
   height: 94px;
 }
 
-@media screen and (max-width: 800px){
-  .grid-container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    position: relative;
-    grid-template-columns: 100vw;
-    grid-template-rows:  120px auto;
-    /* grid-template-rows: 24px 53px 37px auto 5rem; */
-    grid-template-areas:
-    /* ' status '
-    ' header ' */
-    ' main '
-    ' nav'
-    'footer'
-    /* ' footer ' */
-    ;
-      grid-gap: 0;
-    }
-    .grid-nav {
-      grid-area: nav;
-      position: relative;
-    }
-}
+
 
 
 .input{
@@ -210,4 +187,36 @@
 
 .footer-links {
   text-align: center;
+}
+
+/* <-----------  Login Page  -----------> */
+
+/* .loginContainer{
+  background-image: url('/images/backlit-bright-dawn-697243.jpg')
+} */
+
+
+
+/* <-----------  Login Modal CSS  -----------> */
+
+.modalBody{
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalButton{
+  width: 224px;
+  height: 58px;
+  border-radius: 18px;
+  background-color: #63a9c8
+}
+
+.mFooter{
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+
 }
