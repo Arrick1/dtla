@@ -3,12 +3,17 @@ import { Redirect } from 'react-router-dom';
 
 
 
+import { Form, Col, Container } from 'react-bootstrap'
+
+
 const time = [1,2,3,4,5,6,7,8,9,10,11,12]
-const dayArr = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
+const dayArr = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+const stateAbbreviations = ['AL','AK','AS','AZ','AR','CA','CO','CT','DE','DC','FM','FL','GA', 'GU','HI','ID','IL','IN','IA','KS','KY','LA','ME','MH','MD','MA', 'MI','MN','MS','MO','MT','NE','NV','NH','NJ','NM','NY','NC','ND', 'MP','OH','OK','OR','PW','PA','PR','RI','SC','SD','TN','TX','UT','VT','VI','VA','WA','WV','WI','WY'];
 
 class AddService extends Component {
   state = {
     name:"",
+    address: "",
   	city:"",
   	state:"",
   	zip:"",
@@ -58,46 +63,166 @@ class AddService extends Component {
   }
 
   render(){
-    const { name, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
-    return(
-      <div className='addServiceContainer'>
-        <form onSubmit={this.submitHandler}>
-          <input type='text' placeholder='name' name='name' value={name} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='city' name='city' value={city} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='state' name='state' value={state} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='zip' name='zip' value={zip} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='phone' name='phone' value={phone} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='email' name='email' value={email} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='web' name='web' value={web} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='eligibility' name='eligibility' value={eligibility} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
 
-          <select name='categories' onChange={this.categorieHandler}>
+    const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
+    return(
+      <div className='servicePageContainer'>
+      <div></div>
+      <Container>
+       <select name='categories' onChange={this.categorieHandler}>
             <option value='food'>food</option>
             <option value='selfParking'>Self Parking</option>
             <option value='shower'>shower</option>
             <option value='jobs'>jobs</option>
           </select>
+      
+        <Form
+          className="serviceContainer" 
+          onSubmit={this.submitHandler}>
+         
+          <Form.Group>
+            <Form.Label className='display'>Organization Name</Form.Label>
+              <input
+                className="input" 
+                type='text' 
+                name='name' 
+                value={name} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+        
+          <Form.Group>
+            <Form.Label className='display'>Street Address</Form.Label>
+              <input
+                className="input" 
+                type='address' 
+                name='address' 
+                value={address} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
 
-          {dayArr.map((d,i)=>{
-            return <form>
-              <strong key={i} value={d} name='day'>{d}</strong>
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label className='display'>City</Form.Label>
+                <input 
+                  className="input"
+                  type='city' 
+                  name='city' 
+                  value={city} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
 
-              <select onChange={this.openHandler} name='opening'>
+            <Form.Group as={Col}>
+              <Form.Label className='display'>State</Form.Label>
+                <Form.Control as='select'> 
+                  <option>Choose...</option>
+
+                </Form.Control>
+                <input 
+                  type='state' 
+                  name='state' 
+                  value={state} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label className='display'>Zip</Form.Label>
+                <input
+                  className="zipInput" 
+                  type='text' 
+                  placeholder='zip' 
+                  name='zip' 
+                  value={zip} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group>
+            <Form.Label className='display'>Phone</Form.Label>
+              <input
+                className="input" 
+                type='phone'  
+                name='phone' 
+                value={phone} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+        
+          
+          <Form.Group>
+            <Form.Label className='display'>Email</Form.Label>
+              <input 
+                className='input'
+                type='email' 
+                name='email' 
+                value={email} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+          
+          <Form.Group>
+            <Form.Label className='display'>Website</Form.Label>
+              <input 
+                className='input'
+                type='text'  
+                name='web' 
+                value={web} 
+                onChange={this.inputHandler}/>  
+          </Form.Group>
+          
+          <Form.Row>
+          <Form.Group>
+            <Form.Label className='display'>Hours:</Form.Label>
+            {
+              dayArr.map((d,i)=>{
+                return <>
+                <Col>
+                  <strong key={i} value={d} name='day'>{d}</strong>
+                  <select onChange={this.openHandler} name='opening'>
                 {time.map((t,i)=>{
                   return <option  key={i} value={t} >{t}am</option>
                 })}
               </select>
               to
+            </Col>
+              <Col>
               <select onChange={this.closingHandler} name='closing'>
                 {time.map((t,i)=>{
                   return <option key={i} value={t} >{t}pm</option>
                 })}
               </select>
-            </form>
+              </Col>
+            </>
           })}
-          <button type='Submit' onClick={this.submitHandler}>Submit</button>
-        </form>
+
+          </Form.Group>
+
+          </Form.Row>
+              
+          <Form.Group>
+            <Form.Label className='display'>Eligibility Requirements: Who in the community do you serve?</Form.Label>
+              <input
+                className='noteDisplay' 
+                type='text' 
+                name='eligibility' 
+                value={eligibility} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label className="display"> Services Provided</Form.Label>
+              <input
+                className='noteDisplay'  
+                type='text' 
+                name='description' 
+                value={description} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+
+         
+          <button
+            className="serviceButton" 
+            type='Submit' 
+            onClick={this.submitHandler}>Submit</button>
+        </Form>
+      </Container>
       </div>
     )
   }

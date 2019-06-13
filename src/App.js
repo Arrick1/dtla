@@ -141,27 +141,32 @@ class App extends Component {
     return(
 
       <div className="grid-container">
-        <div className="grid-nav">
-          <NavbarItem />
-        </div>
 
-        <div className="grid-main">
-          <Switch>
-            <Route exact path={routes.HOME} render={() =><MapContainer fillterServices={this.fillterServices}          allServices={allServices}/>}/>
-            <Route exact path={routes.LOGIN} render={() =>
-              <Login
-                isLogged={this.state.logged}
-                doLoginUser={this.doLoginUser}
-                doSetCurrentUser={this.doSetCurrentUser}
-                currentUser={currentUser} />}/>
+      <div className="grid-nav">
+        <NavbarItem />
+      </div>
 
-            <Route exact path={routes.ADDSERVICE} render={()=>
-              <AddService createService={this.createService}/>}/>
+      <div className="grid-main">
+        <Switch>
 
-          </Switch>
-          {/* <AllServices allServices={allServices}/> */}
+          <Route exact path={routes.HOME} render={() =><MapContainer fillterServices={this.fillterServices} allServices={allServices}/>}/>
 
-        </div>
+
+          <Route exact path={routes.LOGIN} render={() =>
+            <Login
+              isLogged={this.state.logged}
+              doLoginUser={this.doLoginUser}
+              doSetCurrentUser={this.doSetCurrentUser}
+
+              currentUser={currentUser} />}/>
+         
+          <Route exact path={routes.ADDSERVICE} render={()=>
+            <AddService createService={this.createService}/>}/>
+
+        </Switch>
+        {/* <AllServices allServices={allServices}/> */}
+
+      </div>
         <div className="grid-footer"></div>
       </div>
     )
