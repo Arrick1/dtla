@@ -26,15 +26,17 @@ export class MapContainer extends Component {
           }}
           style={{width: "100%", height: "100%"}}
           zoom={13}
+
         />
         </div>
+
 
       {/* </div> */}
            <Marker/>
            <div className="category-wrapper">
             <h1 className="cat-header">Categories</h1>
               <div className="categories">
-                <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
+                <img value='click' className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
                 <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
                 <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
                 <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
@@ -46,7 +48,14 @@ export class MapContainer extends Component {
               </div>
            </div>
            <div className="footer">
-            <p>SelfParkingLA.org &copy; 2018-2019</p>
+           <div className="footer-items">
+           <div className="footer-links">
+             <a href="" className="links">Home</a>
+             <a href="" className="links">About</a>
+             <a href="" className="links">Contact</a>
+           </div>
+            <p className="copyright">SelfParkingLA.org &copy; 2018-2019</p>
+           </div>
            </div>
         </div>
      

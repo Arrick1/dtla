@@ -15,16 +15,12 @@
     grid-gap: 0;
   }
 
-.grid-nav {
+/* .grid-nav {
   grid-area: nav;
   position: fixed;
-  z-index: 50;
-  width: 100vw;
-}
+} */
 .grid-main {
-  grid-area: main; 
-  position: relative;
-  margin-bottom: 10vw;
+  grid-area: main;
 }
 
 .mapContainer {
@@ -54,25 +50,22 @@
   /* margin-bottom: 10vw; */
 }
 
-/* .Rectangle {
-  width: 1055px;
-  height: 137px;
-  opacity: 0.53;
-  border-radius: 18px;
+
+.serviceContainer {
+  /* width: 1095px;
+  height: 1968px; */
   border: solid 1px #979797;
-  background-color: #ffffff;
+  padding: inherit
+
+}
+
+/* .loginContainer {
+  margin-top: 120px;
+  background-color: blue;
 } */
 
-.addServiceContainer {
-  margin-top: 120px;
-
-}
-
-.loginContainer {
-  margin-top: 120px;
-}
-
 .login-btn {
+  justify-content: end;
   width: 193px;
   height: 48px;
   border-radius: 18px;
@@ -92,13 +85,6 @@
   position: flex;
   z-index: 20;
 }
-
-.sort {
-  width: 1440px;
-  height: 83px;
-  background-color: #6fa7bb;
-}
-
 
 .brandLogo{
   width: 198px;
@@ -130,6 +116,50 @@
     }
 }
 
+
+.input{
+  width: 528px;
+  height: 58px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+.zipInput{
+  width: 124px;
+  height: 58px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+
+.display{
+  margin-left: 30px;
+  display: -webkit-box;
+  margin-bottom: .5rem;
+  font-family: Inter;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #222222;
+}
+
+.noteDisplay{
+  width: 816px;
+  height: 240px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+
+.serviceButton{
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: #ffffff;
+  margin-left: 50vh
+}
+
 .category {
   width: 318.7px;
   height: 318.8px;
@@ -144,6 +174,7 @@
   width: 100vmin;
   grid-gap: 2em;
   margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .category-wrapper {
@@ -153,13 +184,30 @@
   align-items: center;
 }
 
+.footer {
+  width: 1438px;
+  height: 432px;
+  background-color: #f6f6f6;
+  position: absolute;
+  width: 120rem;
+}
+
 .cat-header {
   margin-top: 5rem;
 }
 
-.footer {
-  width: 120rem;
-  height: 28rem;
-  background-color: #f6f6f6;
-  position: absolute;
+.copyright {
+  text-align: center;
+  font-size: 20px;
+}
+
+.links {
+  font-size: 24px;
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+}
+
+.footer-links {
+  text-align: center;
 }
