@@ -6,17 +6,17 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 /* <------- Imported Components -------> */
 import  AddService from './components/AddService/AddService'
 import MapContainer from './components/MapContainer/MapContainer'
-import CreateUser from './components/CreateUser/CreateUser'
+// import CreateUser from './components/CreateUser/CreateUser'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
-import Layout from './components/Layout/Layout'
+
 
 
 import { Col } from 'react-bootstrap'
 
 
-// import './App.css';
+import './App.css';
 
 class App extends Component {
   state ={
@@ -39,9 +39,7 @@ class App extends Component {
           currentUser: parsedUser
         })
       }
-      console.log(parsedUser)
     }
-
 
   doSetCurrentUser = (user) =>
     this.setState({
@@ -59,14 +57,12 @@ class App extends Component {
     })
     const parsedResponse = await loginResponse.json()
     console.log(parsedResponse.data, '<------- this is the parsedResponse')
-    // console.log(loginResponse, '<------- this is the loginResponse')
-
-      if(parsedResponse.success){
-        this.doSetCurrentUser(parsedResponse.data)
-        localStorage.setItem('current', JSON.stringify(parsedResponse.data))
-        this.setState({
-          logged: true,
-          currentUser: parsedResponse.data
+    if(parsedResponse.success){
+      this.doSetCurrentUser(parsedResponse.data)
+      localStorage.setItem('current', JSON.stringify(parsedResponse.data))
+      this.setState({
+        logged: true,
+        currentUser: parsedResponse.data
         })
         console.log('success true')
       } else{
@@ -75,7 +71,7 @@ class App extends Component {
   }
 
   doLogout = async () =>{
-    await fetch('/auth/logout')
+    await fetch('http://localhost:3010//auth/logout')
       localStorage``.clear()
       this.setState({
         currentUser: {},
@@ -123,42 +119,25 @@ class App extends Component {
     console.log(this.state.allServices)
     return(
       <div>
-        <Layout> </Layout>
         <NavbarItem />
-        <Col></Col>
-        {/* <Switch>
+        <Switch>
           <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
           <Route exact path={routes.LOGIN} render={() =>
             <Login
-          isLogged={this.state.log}
-          doLoginUser={this.doLoginUser}
-          doSetCurrentUser={this.doSetCurrentUser}
-          currentUser={currentUser} />}
+              isLogged={this.state.logged}
+              doLoginUser={this.doLoginUser}
+              doSetCurrentUser={this.doSetCurrentUser}
+              currentUser={currentUser} />}
           />
+          <Route exact path={routes.ADDSERVICE} render={()=>
+            <AddService createService={this.createService}/>
+          } />
 
-        </Switch> */}
+        </Switch>
 
-        {/* <Switch>
-          <Route exact path={routes.ROOT}/>
-          <Route exact path={routes.LOGIN}/>
-          <CreateUser />
-          <Login />
-          </Switch>
-          <div className="mapContainer">
-          <Route exact path={routes.LOGIN} render={() =>
-            <Login
-          isLogged={this.state.log}
-          doLoginUser={this.doLoginUser}
-          doSetCurrentUser={this.doSetCurrentUser}
-          currentUser={currentUser}
-            />}
-          />
-          <Route exact path={`${routes.PROFILE}/:id`}/>
-          <CreateUser />
-          <Login />
-        </Switch> */}
 
-        {/* <AddService createService={this.createService}/> */}
+
+
       </div>
 
 

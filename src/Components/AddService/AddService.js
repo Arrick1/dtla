@@ -53,7 +53,7 @@ class AddService extends Component {
   render(){
     const { name, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
     return(
-      <div>
+      <div className='addServiceContainer'>
         <form onSubmit={this.submitHandler}>
           <input type='text' placeholder='name' name='name' value={name} onChange={this.inputHandler}></input>
           <input type='text' placeholder='city' name='city' value={city} onChange={this.inputHandler}></input>
