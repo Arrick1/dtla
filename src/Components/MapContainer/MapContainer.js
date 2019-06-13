@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import Place from "../Place/Place";
 import AllServices from '../AllServices/AllServices';
 import { Accordion, Card, DropdownButton } from "react-bootstrap";
+
 
 
 export class MapContainer extends Component {
@@ -32,49 +32,53 @@ export class MapContainer extends Component {
   }
 
   placeSubmit = (info) => {
-    // this.setState({
-    //   lat: "",
-    //   lng:""
-    // })
+    console.log(info, 'infooooo')
+    this.setState({
+      lat: info.lat,
+      lng: info.lng
+    })
     console.log('placeSubmit working')
   }
 
   render(){
-    const { address, lat, lng } = this.state
+    const { address, lng, lat } = this.state
+    console.log(lng, "lngggg", lat, "lattttt")
     return(
       <div className="mapContainer">
 
 
       <div className="map-wrapper">
-
-        <Place placeSubmit={this.placeSubmit}/>          
+        <Place placeSubmit={this.placeSubmit}/>
 
         <form onSubmit={this.categorySubmit}>
-            sort
-            <select name='categories' onChange={this.categoryHandler}>
-              <option value="all">all</option>
-              <option value='food'>food</option>
-              <option value='selfParking'>Self Parking</option>
-              <option value='shower'>shower</option>
-              <option value='jobs'>jobs</option>
-            </select>
-            <button type='Submit'>Submit</button>
-          </form>
-       
+          sort
+          <select name='categories' onChange={this.categoryHandler}>
+            <option value="all">all</option>
+            <option value='food'>food</option>
+            <option value='selfParking'>Self Parking</option>
+            <option value='shower'>shower</option>
+            <option value='jobs'>jobs</option>
+          </select>
+          <button type='Submit'>Submit</button>
+        </form>
+
         <div className='map'>
           <Map
-              google={this.props.google}
-              initialCenter={{
-              lat: 34.0407,
-              lng: -118.2468
-              }}
+            google={this.props.google}
+            initialCenter={{
+              lat: `34.0407`,
+              lng: `-118.2468`}}
+            center={{
+              lat: `${lat}`,
+              lng: `${lng}`
+            }}
             style={{width: "100%", height: "100%"}}
             zoom={13}>
-            <Marker
+            {/* <Marker
               title={'The marker`s title will appear as a tooltip.'}
               name={'SOMA'}
-              position={{lat: `${lat}`, lng: `${lng}`}} />
-            </Map>
+            position={{lat: `${lat}`, lng: `${lng}`}} /> */}
+          </Map>
         </div>
 
 
@@ -116,7 +120,6 @@ export class MapContainer extends Component {
               </div>
            </div>
         </div>
-     
     )
   }
 }
