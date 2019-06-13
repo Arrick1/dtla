@@ -62,66 +62,70 @@ class AddService extends Component {
     })
   }
 
+
+
   render(){
+
     const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
     return(
       <div className='servicePageContainer'>
-      <div></div>
-      <Container>
+        <div></div>
+        <Container>
+          <select name='categories' onChange={this.categorieHandler}>
+            <option value='food'>food</option>
+            <option value='selfParking'>Self Parking</option>
+            <option value='shower'>shower</option>
+            <option value='jobs'>jobs</option>
+          </select>
 
-      <select name='categories' onChange={this.categorieHandler}>
-        <option value='food'>food</option>
-        <option value='selfParking'>Self Parking</option>
-        <option value='shower'>shower</option>
-        <option value='jobs'>jobs</option>
-      </select>
 
-        <Form
-          className="serviceContainer"
-          onSubmit={this.submitHandler}>
 
-          <Form.Group>
-            <Form.Label className='display'>Organization Name</Form.Label>
+          <Form
+            className="serviceContainer"
+            onSubmit={this.submitHandler}>
+
+            <Form.Group>
+              <Form.Label className='display'>Organization Name</Form.Label>
               <input
                 className="input"
                 type='text'
                 name='name'
                 value={name}
                 onChange={this.inputHandler}/>
-          </Form.Group>
+            </Form.Group>
 
-          <Form.Group>
-            <Form.Label className='display'>Street Address</Form.Label>
+            <Form.Group>
+              <Form.Label className='display'>Street Address</Form.Label>
               <input
                 className="input"
                 type='address'
                 name='address'
                 value={address}
                 onChange={this.inputHandler}/>
-          </Form.Group>
+            </Form.Group>
 
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label className='display'>City</Form.Label>
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label className='display'>City</Form.Label>
                 <input
                   className="input"
                   type='city'
                   name='city'
                   value={city}
                   onChange={this.inputHandler}/>
-            </Form.Group>
+              </Form.Group>
 
-            <Form.Group as={Col}>
-              <Form.Label className='display'>State</Form.Label>
-                <Form.Control as='select'>
-                  <option>Choose...</option>
+              <Form.Group as={Col}>
+                <Form.Label className='display'>State</Form.Label>
+                <Form.Control as='select' onChange={this.categorieHandler} name='state'>
+                  {stateAbbreviations.map((s,i)=>{
+                    return <option key={i} value={s}>{s}</option>
+                  })}
 
                 </Form.Control>
-                <input
-                  type='state'
-                  name='state'
-                  value={state}
-                  onChange={this.inputHandler}/>
+
+
+
             </Form.Group>
 
             <Form.Group as={Col}>
@@ -195,14 +199,6 @@ class AddService extends Component {
           </Form.Group>
 
           </Form.Row>
-
-
-
-
-
-
-
-
 
           <Form.Group>
             <Form.Label className='display'>Eligibility Requirements: Who in the community do you serve?</Form.Label>

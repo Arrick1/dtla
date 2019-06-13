@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-// import { Redirect } from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 
 
@@ -31,28 +31,35 @@ class Login extends Component {
 
     render(){
         const { username, password } = this.state
+        const { isLogged } = this.props
         console.log(this.props.currentUser)
         return(
             <div className="loginContainer">
+            {
+              isLogged
+              ? <Redirect to={`/`} />
+              : (
                 <form>
-                    <input 
-                        type="text" 
-                        name="username" 
-                        placeholder="Username" 
-                        value={username} 
+                    <input
+                        type="text"
+                        name="username"
+                        placeholder="Username"
+                        value={username}
                         onChange={this.handleChange}>
                     </input>
                     <br/>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Password" 
-                        value={password} 
+                    <input
+                        type="password"
+                        name="password"
+                        placeholder="Password"
+                        value={password}
                         onChange={this.handleChange}>
                     </input>
                     <br/>
                     <button onClick={this.loginHandler}>Login</button>
                 </form>
+              )
+            }
             </div>
         )
     }
