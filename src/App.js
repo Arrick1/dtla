@@ -10,6 +10,7 @@ import MapContainer from './components/MapContainer/MapContainer'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
+import AllServices from "./components/AllServices/AllServices"
 
 
 import { Col } from 'react-bootstrap'
@@ -114,7 +115,7 @@ class App extends Component {
     }
 
   render(){
-    const {currentUser} = this.state
+    const {currentUser, allServices} = this.state
     console.log(this.state.allServices)
     return(
 
@@ -141,6 +142,7 @@ class App extends Component {
             <AddService createService={this.createService}/>}/>
 
         </Switch>
+        {/* <AllServices allServices={allServices}/> */}
 
       </div>
       <div className="grid-footer"></div>
