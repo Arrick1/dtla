@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
+
 
 
 const time = [1,2,3,4,5,6,7,8,9,10,11,12]
@@ -40,15 +42,19 @@ class AddService extends Component {
   }
 
   submitHandler = (e) => {
-    e.preventdefault()
+    e.preventDefault()
     this.props.createService(this.state)
+  }
+
+  dayHandler = (e) => {
+    console.log('hello')
   }
 
   render(){
     const { name, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
     return(
       <div>
-        <form>
+        <form onSubmit={this.submitHandler}>
           <input type='text' placeholder='name' name='name' value={name} onChange={this.inputHandler}></input>
           <input type='text' placeholder='city' name='city' value={city} onChange={this.inputHandler}></input>
           <input type='text' placeholder='state' name='state' value={state} onChange={this.inputHandler}></input>
@@ -76,7 +82,7 @@ class AddService extends Component {
               </select>
             </>
           })}
-          <button type='Submit'>Submit</button>
+          <button type='Submit' onClick={this.submitHandler}>Submit</button>
         </form>
       </div>
     )

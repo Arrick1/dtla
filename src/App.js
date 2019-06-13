@@ -28,7 +28,6 @@ class App extends Component {
 
   async componentDidMount(){
     this.getServices().then(res => {
-      console.log(res)
       this.setState({
         allServices: res.findServices
       })
@@ -100,8 +99,8 @@ class App extends Component {
           this.setState({
             allServices: [...this.setState.allServices, resCreate.createService]
           })
+          this.props.history.push('/')
         }
-        // redirect to homepage
       }catch(err){
         return err
       }
@@ -121,6 +120,7 @@ class App extends Component {
 
   render(){
     const {currentUser} = this.state
+    console.log(this.state.allServices)
     return(
       <div>
         <Layout> </Layout>
@@ -158,7 +158,7 @@ class App extends Component {
           <Login />
         </Switch> */}
 
-        <AddService createService={this.createService}/>
+        {/* <AddService createService={this.createService}/> */}
       </div>
 
 
