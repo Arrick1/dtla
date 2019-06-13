@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import Place from "../Place/Place";
+import AllServices from '../AllServices/AllServices';
+import { Accordion, Card, DropdownButton } from "react-bootstrap";
 
-import AllServices from '../AllServices/AllServices'
 
 
 export class MapContainer extends Component {
@@ -47,8 +47,7 @@ export class MapContainer extends Component {
       <div className="mapContainer">
 
 
-        {/* <div className="UmYeah"> */}
-
+      <div className="map-wrapper">
         <Place placeSubmit={this.placeSubmit}/>
 
         <form onSubmit={this.categorySubmit}>
@@ -83,13 +82,33 @@ export class MapContainer extends Component {
         </div>
 
 
-
-      {/* </div> */}
-            <AllServices allServices={this.props.allServices}/>
+      </div>
+            {/* <AllServices allServices={this.props.allServices}/> */}
+            <div className="sort">
+              <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
+            </div>
+          <Accordion defaultActiveKey="0">
+              <Card>
+                <Accordion.Toggle as={Card.Header} eventKey="1">
+                  Hi Jomar
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="1">
+                  <Card.Body>FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!!</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+              <Card>
+                <Accordion.Toggle as={Card.Header} eventKey="2">
+                  Hi Jomar
+                </Accordion.Toggle>
+                <Accordion.Collapse eventKey="2">
+                  <Card.Body>FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!!</Card.Body>
+                </Accordion.Collapse>
+              </Card>
+          </Accordion>
            <div className="category-wrapper">
             <h1 className="cat-header">Categories</h1>
               <div className="categories">
-                <img value='click' className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
+                <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
                 <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
                 <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
                 <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
@@ -99,16 +118,6 @@ export class MapContainer extends Component {
                 <img className="category" src="/images/buildings-bus-chicago-2181194.jpg"></img>
                 <img className="category" src="/images/care-check-checkup-905874.jpg"></img>
               </div>
-           </div>
-           <div className="footer">
-           <div className="footer-items">
-           <div className="footer-links">
-             <a href="" className="links">Home</a>
-             <a href="" className="links">About</a>
-             <a href="" className="links">Contact</a>
-           </div>
-            <p className="copyright">SelfParkingLA.org &copy; 2018-2019</p>
-           </div>
            </div>
         </div>
     )
