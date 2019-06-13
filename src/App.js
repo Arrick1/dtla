@@ -4,13 +4,12 @@ import { Switch, Route, withRouter } from 'react-router-dom';
 
 
 /* <------- Imported Components -------> */
-// import  AddService from './components/AddService/AddService' 
+import  AddService from './components/AddService/AddService'
 import MapContainer from './components/MapContainer/MapContainer'
 // import CreateUser from './components/CreateUser/CreateUser'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
-// import Layout from './components/Layout/Layout'
 
 
 import { Col } from 'react-bootstrap'
@@ -22,10 +21,16 @@ class App extends Component {
   state ={
     currentUser: {},
     logged: false,
-    location: ''
+    location: '',
+    allServices: []
   }
 
   async componentDidMount(){
+    this.getServices().then(res => {
+      this.setState({
+        allServices: res.findServices
+      })
+    })
     const user = await localStorage.getItem('currrent')
     const parsedUser = await JSON.parse(user)
       if(user){
@@ -34,7 +39,7 @@ class App extends Component {
         })
       }
     }
- 
+
   doSetCurrentUser = (user) =>
     this.setState({
       currentUser: user
@@ -74,53 +79,66 @@ class App extends Component {
       this.props.history.push(routes.LOGIN)
     }
 
+    createService = async(info) => {
+      try{
+        const createSer = await fetch('http://localhost:3010/services', {
+          method: 'POST',
+          credentials: 'include',
+          body: JSON.stringify(info),
+          headers: {
+            'Content-Type' : 'application/json'
+          }
+        })
+        const resCreate = await createSer.json()
+        if(resCreate.success){
+          this.setState({
+            allServices: [...this.setState.allServices, resCreate.createService]
+          })
+          this.props.history.push('/')
+        }
+      }catch(err){
+        return err
+      }
+    }
 
+    getServices = async() => {
+      try{
+        const resServices = await fetch('http://localhost:3010/services', {
+          credentials: 'include'
+        })
+        const parsedServices = await resServices.json()
+        return parsedServices
+      }catch(err){
+
+      }
+    }
 
   render(){
     const {currentUser} = this.state
+    console.log(this.state.allServices)
     return(
       <div>
-      {/* <Layout> </Layout> */}
-      <NavbarItem />
-      <Col></Col>
-      <Switch>
+        <NavbarItem />
+        <Switch>
           <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
           <Route exact path={routes.LOGIN} render={() =>
-          <Login
-            isLogged={this.state.logged}
-            doLoginUser={this.doLoginUser}
-            doSetCurrentUser={this.doSetCurrentUser}
-            currentUser={currentUser} />}
-          /> 
-        {/* <Route exact path={`${routes.PROFILE}/:id`} render={()=>
-           <Profile 
-           currentUser={currentUser}/>}/> */}
-
-      </Switch>
-        
-        {/* <Switch>
-          <Route exact path={routes.ROOT}/>
-          <Route exact path={routes.LOGIN}/>
-          <CreateUser />
-          <Login />
-          </Switch>
-          <div className="mapContainer">
-          <Route exact path={routes.LOGIN} render={() =>
             <Login
-              isLogged={this.state.log}
+              isLogged={this.state.logged}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
-              currentUser={currentUser}
-            />}
+              currentUser={currentUser} />}
           />
-          <Route exact path={`${routes.PROFILE}/:id`}/>
-        <CreateUser />
-        <Login />
-        </Switch> */}
-       
-        {/* <AddService /> */}
+          <Route exact path={routes.ADDSERVICE} render={()=>
+            <AddService createService={this.createService}/>
+          } />
+
+        </Switch>
+
+
+
+
       </div>
- 
+
 
     )
   }

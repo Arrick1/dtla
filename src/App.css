@@ -1,3 +1,17 @@
+.mapContainer {
+  margin-top: 120px;
+}
+
+.addServiceContainer {
+  margin-top: 120px;
+
+}
+
+.loginContainer {
+  margin-top: 120px;
+  background-color: blue;
+}
+
 .login-btn {
   width: 193px;
   height: 48px;
@@ -8,12 +22,30 @@
 }
 
 
+.map {
+  width: 1055px;
+  height: 137px;
+  opacity: 0.53;
+  border-radius: 18px;
+  border: solid 1px #979797;
+  background-color: #ffffff;
+}
+
+.sort {
+  width: 1440px;
+  height: 83px;
+  background-color: #6fa7bb;
+}
+
 
 .brandLogo{
   width: 198px;
   height: 94px;
 }
+<<<<<<< HEAD
 
 .mapcontainer{
   background: #000000
 }
+=======
+>>>>>>> master

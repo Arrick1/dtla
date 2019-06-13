@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import Place from "../Place/Place";
-import "./MapContainer.css";
 
 
 export class MapContainer extends Component {
@@ -13,10 +12,10 @@ export class MapContainer extends Component {
     const { address } = this.state
     console.log(this.props.place)
     return(
-      <div className="map-container">
+      <div className="mapContainer">
         <div className="map">
         <Place />
-        </div>     
+        </div>
         <Map
           google={this.props.google}
           initialCenter={{
