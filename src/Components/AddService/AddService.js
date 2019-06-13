@@ -20,7 +20,8 @@ class AddService extends Component {
     closing: [],
     hoursTest: '',
   	eligibility:"",
-  	description:""
+  	description:"",
+    categories:''
   }
 
   inputHandler = (e) => {
@@ -50,8 +51,14 @@ class AddService extends Component {
     console.log('hello')
   }
 
+  categorieHandler = (e) => {
+    this.setState({
+      [e.currentTarget.name]: e.currentTarget.value
+    })
+  }
+
   render(){
-    const { name, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
+    const { name, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
     return(
       <div className='addServiceContainer'>
         <form onSubmit={this.submitHandler}>
@@ -65,8 +72,15 @@ class AddService extends Component {
           <input type='text' placeholder='eligibility' name='eligibility' value={eligibility} onChange={this.inputHandler}></input>
           <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
 
+          <select name='categories' onChange={this.categorieHandler}>
+            <option value='food'>food</option>
+            <option value='selfParking'>Self Parking</option>
+            <option value='shower'>shower</option>
+            <option value='jobs'>jobs</option>
+          </select>
+
           {dayArr.map((d,i)=>{
-            return <>
+            return <form>
               <strong key={i} value={d} name='day'>{d}</strong>
 
               <select onChange={this.openHandler} name='opening'>
@@ -80,7 +94,7 @@ class AddService extends Component {
                   return <option key={i} value={t} >{t}pm</option>
                 })}
               </select>
-            </>
+            </form>
           })}
           <button type='Submit' onClick={this.submitHandler}>Submit</button>
         </form>
