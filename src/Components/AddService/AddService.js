@@ -71,27 +71,29 @@ class AddService extends Component {
       <div className='servicePageContainer'>
         <div></div>
         <Container>
-          <select name='categories' onChange={this.categorieHandler}>
-            <option value='food'>food</option>
-            <option value='selfParking'>Self Parking</option>
-            <option value='shower'>shower</option>
-            <option value='jobs'>jobs</option>
-          </select>
-
 
 
           <Form
             className="serviceContainer"
             onSubmit={this.submitHandler}>
 
-            <Form.Label className='display'>Categories</Form.Label>
 
-            <select name='categories' onChange={this.categorieHandler}>
+            <Form.Group as={Col}>
+              <Form.Label className='display'>Categories</Form.Label>
+              <Form.Control as='select' onChange={this.categorieHandler} name='state'>
+                <option value='food'>food</option>
+                <option value='selfParking'>Self Parking</option>
+                <option value='shower'>shower</option>
+                <option value='jobs'>jobs</option>
+              </Form.Control>
+            </Form.Group>
+
+            {/* <select name='categories' onChange={this.categorieHandler}>
               <option value='food'>food</option>
               <option value='selfParking'>Self Parking</option>
               <option value='shower'>shower</option>
               <option value='jobs'>jobs</option>
-            </select>
+            </select> */}
 
             <Form.Group>
               <Form.Label className='display'>Organization Name</Form.Label>
@@ -130,12 +132,8 @@ class AddService extends Component {
                   {stateAbbreviations.map((s,i)=>{
                     return <option key={i} value={s}>{s}</option>
                   })}
-
                 </Form.Control>
-
-
-
-            </Form.Group>
+              </Form.Group>
 
             <Form.Group as={Col}>
               <Form.Label className='display'>Zip</Form.Label>
@@ -235,7 +233,7 @@ class AddService extends Component {
             type='Submit'
             onClick={this.submitHandler}>Submit</button>
 
-            
+
         </Form>
       </Container>
       </div>

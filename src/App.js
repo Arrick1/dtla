@@ -8,6 +8,7 @@ import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
 import AllServices from './components/AllServices/AllServices'
+import GetInvolved from './components/GetInvolved/GetInvolved'
 
 import Footer from "./components/Footer/Footer"
 
@@ -148,8 +149,11 @@ class App extends Component {
 
           <Route exact path={routes.ADDSERVICE} render={()=>
             <AddService createService={this.createService}/>}/>
+
+          <Route exact path={routes.GETINVOLVED} render={()=>
+            <GetInvolved/>}/>
         </Switch>
-        
+
         {/* <AllServices allServices={allServices}/> */}
         <Footer />
 
