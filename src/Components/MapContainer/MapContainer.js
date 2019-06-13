@@ -13,7 +13,7 @@ export class MapContainer extends Component {
     console.log(this.props.place)
     return(
       <div className="mapContainer">
-      
+
       <div className="UmYeah">
       <Place />
        

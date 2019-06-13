@@ -102,6 +102,7 @@ class App extends Component {
       }
     }
 
+
     getServices = async() => {
       try{
         const resServices = await fetch('http://localhost:3010/services', {
@@ -110,7 +111,6 @@ class App extends Component {
         const parsedServices = await resServices.json()
         return parsedServices
       }catch(err){
-
       }
     }
 
@@ -118,6 +118,7 @@ class App extends Component {
     const {currentUser} = this.state
     console.log(this.state.allServices)
     return(
+
       <div className="grid-container">
       <div className="grid-nav">
         <NavbarItem />
@@ -128,11 +129,13 @@ class App extends Component {
 
           <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
 
+
           <Route exact path={routes.LOGIN} render={() =>
             <Login
               isLogged={this.state.logged}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
+
               currentUser={currentUser} />}/>
          
           <Route exact path={routes.ADDSERVICE} render={()=>
@@ -142,13 +145,7 @@ class App extends Component {
 
       </div>
       <div className="grid-footer"></div>
-
-
-
-
       </div>
-
-
     )
   }
 }
