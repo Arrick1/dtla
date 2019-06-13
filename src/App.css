@@ -16,17 +16,17 @@
     grid-gap: 0;
   }
 
-.grid-nav {
+/* .grid-nav {
   grid-area: nav;
   position: fixed;
-}
+} */
 .grid-main {
   grid-area: main;
 }
 
 .grid-footer {
   grid-area: footer;
-  background-color: black;
+  background-color: #f6f6f6;
   width: 100vw;
 }
 
@@ -55,17 +55,12 @@
   /* margin-bottom: 10vw; */
 }
 
-/* .Rectangle {
-  width: 1055px;
-  height: 137px;
-  opacity: 0.53;
-  border-radius: 18px;
-  border: solid 1px #979797;
-  background-color: #ffffff;
-} */
 
-.addServiceContainer {
-  margin-top: 120px;
+.serviceContainer {
+  /* width: 1095px;
+  height: 1968px; */
+  border: solid 1px #979797;
+  padding: inherit
 
 }
 
@@ -92,13 +87,6 @@
   border: solid 1px #979797;
   background-color: #ffffff;
 }
-
-.sort {
-  width: 1440px;
-  height: 83px;
-  background-color: #6fa7bb;
-}
-
 
 .brandLogo{
   width: 198px;
@@ -128,4 +116,48 @@
       grid-area: nav;
       position: relative;
     }
+}
+
+
+.input{
+  width: 528px;
+  height: 58px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+.zipInput{
+  width: 124px;
+  height: 58px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+
+.display{
+  margin-left: 30px;
+  display: -webkit-box;
+  margin-bottom: .5rem;
+  font-family: Inter;
+  font-size: 22px;
+  font-weight: normal;
+  font-style: normal;
+  font-stretch: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #222222;
+}
+
+.noteDisplay{
+  width: 816px;
+  height: 240px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+}
+
+.serviceButton{
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: #ffffff;
+  margin-left: 50vh
 }
