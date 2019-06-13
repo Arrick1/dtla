@@ -46,9 +46,10 @@ export class MapContainer extends Component {
 
 
       <div className="map-wrapper">
-
-        <Place placeSubmit={this.placeSubmit}/>          
-
+        <div className="image">
+          <div className="map-header">
+            <Place placeSubmit={this.placeSubmit}/>          
+          </div>
         <form onSubmit={this.categorySubmit}>
             sort
             <select name='categories' onChange={this.categoryHandler}>
@@ -77,7 +78,7 @@ export class MapContainer extends Component {
             </Map>
         </div>
 
-
+        </div>
       </div>
             {/* <AllServices allServices={this.props.allServices}/> */}
             <div className="sort">
