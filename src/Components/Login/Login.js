@@ -1,6 +1,15 @@
 import React, { Component } from "react";
 // import { Redirect } from 'react-router-dom'
 
+/* <----------- React components -----------> */
+import {Modal, Button, Form, FormGroup} from 'react-bootstrap'
+
+/* <----------- styld components -----------> */
+import styled           from 'styled-components'
+
+const Container = styled.div`
+  background-image: url('https://i.imgur.com/y370FSk.jpg');
+`
 
 
 class Login extends Component {
@@ -12,11 +21,12 @@ class Login extends Component {
         loginModal: false
     }
     showLoginModal = () => {
-        this.setState({ loginModal:false })
-      }
-      hideLoginModal = () => {
+        this.setState({ loginModal: true })
+    }
+
+    hideLoginModal = () => {
         this.setState({ loginModal: false })
-      }
+    }
 
     handleChange = (e) => {
         this.setState({
@@ -33,27 +43,56 @@ class Login extends Component {
         const { username, password } = this.state
         console.log(this.props.currentUser)
         return(
-            <div className="loginContainer">
-                <form>
-                    <input 
-                        type="text" 
-                        name="username" 
-                        placeholder="Username" 
-                        value={username} 
-                        onChange={this.handleChange}>
-                    </input>
-                    <br/>
-                    <input 
-                        type="password" 
-                        name="password" 
-                        placeholder="Password" 
-                        value={password} 
-                        onChange={this.handleChange}>
-                    </input>
-                    <br/>
-                    <button onClick={this.loginHandler}>Login</button>
-                </form>
-            </div>
+            <Container > 
+                <div> <button onClick={this.showLoginModal}> login </button> </div>
+                
+
+                { 
+                    this.state.loginModal ?
+                    
+                <Modal 
+                    size='lg' 
+                    centered
+                    show={this.showLoginModal}
+                    onHide={this.hideLoginModal}
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>Login</Modal.Title>
+                    </Modal.Header>
+                        <div className="modalBody">
+                            <Form>
+
+                                <Form.Group>
+                                <Form.Label className='display'>Username</Form.Label>
+                                    <input
+                                        className="input" 
+                                        type="text" 
+                                        name="username"  
+                                        value={username} 
+                                        onChange={this.handleChange}>
+                                     </input>
+                                </Form.Group>
+
+                                <Form.Group>
+                                <Form.Label className="display"> Password</Form.Label>
+                                    <input 
+                                        className="input"
+                                        type="password" 
+                                        name="password" 
+                                        value={password} 
+                                        onChange={this.handleChange}>
+                                    </input>  
+                                </Form.Group>
+                            </Form>
+                        </div>
+                    <div className="mFooter">
+                        <button className="modalButton" hideLoginModal={this.hideLoginModal} onClick={this.loginHandler}>Login</button>
+                    </div>
+                </Modal>
+                :<div/>
+               
+                }
+            </Container>
         )
     }
 }

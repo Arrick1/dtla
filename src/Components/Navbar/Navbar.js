@@ -16,7 +16,7 @@ class NavbarItem extends Component {
                         <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>
                     </NavLink>
 
-                    <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink> </Nav>
+                    <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn" onClick={this.props.showLoginModal}> Login</button> </NavLink> </Nav>
 
 
                 </Navbar>
