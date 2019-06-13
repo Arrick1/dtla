@@ -10,7 +10,7 @@ import MapContainer from './components/MapContainer/MapContainer'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
-import Layout from './components/Layout/Layout'
+
 
 
 import { Col } from 'react-bootstrap'
@@ -80,7 +80,6 @@ class App extends Component {
     const {currentUser} = this.state
     return(
       <div>
-      <Layout> </Layout>
       <NavbarItem />
       <Switch>
         <Route exact path={routes.HOME} render={() =><MapContainer/>}/>

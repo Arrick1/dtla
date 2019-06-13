@@ -26,7 +26,7 @@ class Login extends Component {
         const { username, password } = this.state
         console.log(this.props.currentUser)
         return(
-            <div>
+            <div className="loginContainer">
                 <form>
                     <input 
                         type="text" 
