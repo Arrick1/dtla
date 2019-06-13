@@ -13,6 +13,7 @@ class Place extends Component {
         return(
             <div>
                 <GoogleComponent
+                className="Rectangle"
          
                 apiKey={API_KEY}
                 language={'en'}
