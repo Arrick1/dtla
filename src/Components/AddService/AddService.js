@@ -62,76 +62,80 @@ class AddService extends Component {
     })
   }
 
+
+
   render(){
 
     const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
     return(
       <div className='servicePageContainer'>
-      <div></div>
-      <Container>
-       <select name='categories' onChange={this.categorieHandler}>
+        <div></div>
+        <Container>
+          <select name='categories' onChange={this.categorieHandler}>
             <option value='food'>food</option>
             <option value='selfParking'>Self Parking</option>
             <option value='shower'>shower</option>
             <option value='jobs'>jobs</option>
           </select>
-      
-        <Form
-          className="serviceContainer" 
-          onSubmit={this.submitHandler}>
-         
-          <Form.Group>
-            <Form.Label className='display'>Organization Name</Form.Label>
-              <input
-                className="input" 
-                type='text' 
-                name='name' 
-                value={name} 
-                onChange={this.inputHandler}/>
-          </Form.Group>
-        
-          <Form.Group>
-            <Form.Label className='display'>Street Address</Form.Label>
-              <input
-                className="input" 
-                type='address' 
-                name='address' 
-                value={address} 
-                onChange={this.inputHandler}/>
-          </Form.Group>
 
-          <Form.Row>
-            <Form.Group as={Col}>
-              <Form.Label className='display'>City</Form.Label>
-                <input 
-                  className="input"
-                  type='city' 
-                  name='city' 
-                  value={city} 
-                  onChange={this.inputHandler}/>
+
+
+          <Form
+            className="serviceContainer"
+            onSubmit={this.submitHandler}>
+
+            <Form.Group>
+              <Form.Label className='display'>Organization Name</Form.Label>
+              <input
+                className="input"
+                type='text'
+                name='name'
+                value={name}
+                onChange={this.inputHandler}/>
             </Form.Group>
 
-            <Form.Group as={Col}>
-              <Form.Label className='display'>State</Form.Label>
-                <Form.Control as='select'> 
-                  <option>Choose...</option>
+            <Form.Group>
+              <Form.Label className='display'>Street Address</Form.Label>
+              <input
+                className="input"
+                type='address'
+                name='address'
+                value={address}
+                onChange={this.inputHandler}/>
+            </Form.Group>
+
+            <Form.Row>
+              <Form.Group as={Col}>
+                <Form.Label className='display'>City</Form.Label>
+                <input
+                  className="input"
+                  type='city'
+                  name='city'
+                  value={city}
+                  onChange={this.inputHandler}/>
+              </Form.Group>
+
+              <Form.Group as={Col}>
+                <Form.Label className='display'>State</Form.Label>
+                <Form.Control as='select' onChange={this.categorieHandler} name='state'>
+                  {stateAbbreviations.map((s,i)=>{
+                    return <option key={i} value={s}>{s}</option>
+                  })}
 
                 </Form.Control>
-                <input 
-                  type='state' 
-                  name='state' 
-                  value={state} 
-                  onChange={this.inputHandler}/>
+
+
+
             </Form.Group>
 
             <Form.Group as={Col}>
               <Form.Label className='display'>Zip</Form.Label>
                 <input
-                  className="zipInput" 
-                  type='text' 
-                  placeholder='zip' 
-                  name='zip' 
-                  value={zip} 
+                  className="zipInput"
+                  type='text'
+                  placeholder='zip'
+                  name='zip'
+                  value={zip}
                   onChange={this.inputHandler}/>
             </Form.Group>
           </Form.Row>
@@ -139,34 +143,34 @@ class AddService extends Component {
           <Form.Group>
             <Form.Label className='display'>Phone</Form.Label>
               <input
-                className="input" 
-                type='phone'  
-                name='phone' 
-                value={phone} 
+                className="input"
+                type='phone'
+                name='phone'
+                value={phone}
                 onChange={this.inputHandler}/>
           </Form.Group>
-        
-          
+
+
           <Form.Group>
             <Form.Label className='display'>Email</Form.Label>
-              <input 
+              <input
                 className='input'
-                type='email' 
-                name='email' 
-                value={email} 
+                type='email'
+                name='email'
+                value={email}
                 onChange={this.inputHandler}/>
           </Form.Group>
-          
+
           <Form.Group>
             <Form.Label className='display'>Website</Form.Label>
-              <input 
+              <input
                 className='input'
-                type='text'  
-                name='web' 
-                value={web} 
-                onChange={this.inputHandler}/>  
+                type='text'
+                name='web'
+                value={web}
+                onChange={this.inputHandler}/>
           </Form.Group>
-          
+
           <Form.Row>
           <Form.Group>
             <Form.Label className='display'>Hours:</Form.Label>
@@ -195,31 +199,31 @@ class AddService extends Component {
           </Form.Group>
 
           </Form.Row>
-              
+
           <Form.Group>
             <Form.Label className='display'>Eligibility Requirements: Who in the community do you serve?</Form.Label>
               <input
-                className='noteDisplay' 
-                type='text' 
-                name='eligibility' 
-                value={eligibility} 
+                className='noteDisplay'
+                type='text'
+                name='eligibility'
+                value={eligibility}
                 onChange={this.inputHandler}/>
           </Form.Group>
 
           <Form.Group>
             <Form.Label className="display"> Services Provided</Form.Label>
               <input
-                className='noteDisplay'  
-                type='text' 
-                name='description' 
-                value={description} 
+                className='noteDisplay'
+                type='text'
+                name='description'
+                value={description}
                 onChange={this.inputHandler}/>
           </Form.Group>
 
-         
+
           <button
-            className="serviceButton" 
-            type='Submit' 
+            className="serviceButton"
+            type='Submit'
             onClick={this.submitHandler}>Submit</button>
         </Form>
       </Container>

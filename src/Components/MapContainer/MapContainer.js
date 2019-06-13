@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import Place from "../Place/Place";
 import AllServices from '../AllServices/AllServices';
 import { Accordion, Card, DropdownButton } from "react-bootstrap";
+import Place from '../Place/Place'
+
 
 
 export class MapContainer extends Component {
@@ -32,27 +33,26 @@ export class MapContainer extends Component {
   }
 
   placeSubmit = (info) => {
-    // this.setState({
-    //   lat: "",
-    //   lng:""
-    // })
+    console.log(info, 'infooooo')
+    this.setState({
+      lat: info.lat,
+      lng: info.lng
+    })
     console.log('placeSubmit working')
   }
 
   render(){
-    const { address, lat, lng } = this.state
+    const { address, lng, lat } = this.state
+    console.log(lng, "lngggg", lat, "lattttt")
     return(
       <div className="mapContainer">
 
 
       <div className="map-wrapper">
-        <div className="image">
           <div className="map-header">
             <Place placeSubmit={this.placeSubmit}/>          
-          </div>
-        <form onSubmit={this.categorySubmit}>
-            sort
-            <select name='categories' onChange={this.categoryHandler}>
+          <form onSubmit={this.categorySubmit}>
+            <select name='categories' onChange={this.categoryHandler} placeholder="Categories">
               <option value="all">all</option>
               <option value='food'>food</option>
               <option value='selfParking'>Self Parking</option>
@@ -61,7 +61,7 @@ export class MapContainer extends Component {
             </select>
             <button type='Submit'>Submit</button>
           </form>
-       
+          </div>
         <div className='map'>
           <Map
               google={this.props.google}
@@ -78,7 +78,6 @@ export class MapContainer extends Component {
             </Map>
         </div>
 
-        </div>
       </div>
             {/* <AllServices allServices={this.props.allServices}/> */}
             <div className="sort">
@@ -117,7 +116,6 @@ export class MapContainer extends Component {
               </div>
            </div>
         </div>
-     
     )
   }
 }

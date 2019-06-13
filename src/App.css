@@ -24,9 +24,6 @@
 }
 
 .mapContainer {
-
-  /* margin-top: 120px; */
-  /* background-color: white; */
   margin: 2vw 0 4vw 0;
   position: relative;
 }
@@ -50,26 +47,9 @@
 
 }
 
-/* .loginContainer {
-  margin-top: 120px;
-  background-color: blue;
-} */
-
-.login-btn {
-  justify-content: end;
-  width: 193px;
-  height: 48px;
-  border-radius: 18px;
-  border: solid 1px #454545;
-  background-color: #000000;
-  color: white;
-}
-
-
 .map {
   width: 1055px;
   height: 137px;
-  opacity: 0.53;
   border-radius: 18px;
   border: solid 1px #979797;
   background-color: #ffffff;
@@ -82,30 +62,7 @@
   height: 94px;
 }
 
-@media screen and (max-width: 800px){
-  .grid-container {
-    width: 100vw;
-    height: 100vh;
-    display: grid;
-    position: relative;
-    grid-template-columns: 100vw;
-    grid-template-rows:  120px auto;
-    /* grid-template-rows: 24px 53px 37px auto 5rem; */
-    grid-template-areas:
-    /* ' status '
-    ' header ' */
-    ' main '
-    ' nav'
-    'footer'
-    /* ' footer ' */
-    ;
-      grid-gap: 0;
-    }
-    .grid-nav {
-      grid-area: nav;
-      position: relative;
-    }
-}
+
 
 
 .input{
@@ -218,6 +175,7 @@
   padding: 15px;
 }
 
+
 .fas {
   font-size: 5rem;
   padding: 15px;
@@ -241,24 +199,102 @@
   width: 12rem;
 }
 
+
+/* <-----------  Login Page  -----------> */
+
+/* .loginContainer{
+  background-image: url('/images/backlit-bright-dawn-697243.jpg')
+} */
+
+
+/* <-----------  NavBar CSS  -----------> */
+
+.navbarContainer{
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 1030;
+  background-color: #fff!important;
+  flex-flow: row nowrap;
+  padding: .5rem 1rem;
+}
+
+.login-btn {
+  justify-content: end;
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: #000000;
+  color: white;
+  margin-top: 27px
+}
+
+
+/* <-----------  Login Modal CSS  -----------> */
+
+.modalBody{
+  position: relative;
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.modalButton{
+  width: 224px;
+  height: 58px;
+  border-radius: 18px;
+  background-color: #63a9c8
+}
+
+.mFooter{
+  display: flex;
+  justify-content: center;
+  padding: 16px;
+
+}
+
+
+/* <-----------  Landing Page CSS  -----------> */
+
+
 .image {
   background: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg") no-repeat center center;
   background-size: cover;
-}
-
-.location-box {
+ }
+ 
+ .location-box {
   width: 528px;
   height: 58px;
   border-radius: 18px;
   border: solid 1px #454545;
   background-color: #f0f0f0;
-}
-
-.map-header {
-  width: 1055px;
+ }
+ 
+ .map-header {
+  width: 60rem;
   height: 137px;
   opacity: 0.53;
-  border-radius: 18px;
+  border-radius: 5px;
   border: solid 1px #979797;
   background-color: #ffffff;
-}
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .map-wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-image: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg");
+   background-size: cover;
+   background-position: center;
+   height: 100vh;
+ }
