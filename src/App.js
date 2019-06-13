@@ -83,7 +83,6 @@ class App extends Component {
       <div>
       <Layout> </Layout>
       <NavbarItem />
-      <Col></Col>
       <Switch>
         <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
         <Route exact path={routes.LOGIN} render={() =>
