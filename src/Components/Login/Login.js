@@ -8,8 +8,15 @@ class Login extends Component {
     state = {
         username: "",
         password: "",
-        logged: false
+        logged: false,
+        loginModal: false
     }
+    showLoginModal = () => {
+        this.setState({ loginModal:false })
+      }
+      hideLoginModal = () => {
+        this.setState({ loginModal: false })
+      }
 
     handleChange = (e) => {
         this.setState({
