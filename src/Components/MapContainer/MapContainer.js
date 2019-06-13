@@ -13,21 +13,44 @@ export class MapContainer extends Component {
     console.log(this.props.place)
     return(
       <div className="mapContainer">
-        <div className="map">
-        <Place />
-        </div>
-        <Map
+
+      {/* <div className="UmYeah"> */}
+      <Place />
+       
+        <div className='map'>
+          <Map
           google={this.props.google}
           initialCenter={{
               lat: 34.0407,
               lng: -118.2468
           }}
-          style={{width: "1055px", height: "620px"}}
+          style={{width: "100%", height: "100%"}}
           zoom={13}
-        /> 
-        <Marker/>
+        />
+        </div>
 
-      </div>
+      {/* </div> */}
+           <Marker/>
+           <div className="category-wrapper">
+            <h1 className="cat-header">Categories</h1>
+              <div className="categories">
+                <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
+                <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
+                <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
+                <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
+                <img className="category" src="/images/alert-attention-caution-2217145.jpg"></img>
+                <img className="category" src="/images/adult-brainstorming-businesswoman-515169.jpg"></img>
+                <img className="category" src="/images/blackboard-chairs-chalk-159844.jpg"></img>
+                <img className="category" src="/images/buildings-bus-chicago-2181194.jpg"></img>
+                <img className="category" src="/images/care-check-checkup-905874.jpg"></img>
+              </div>
+           </div>
+           <div className="footer">
+            <p>SelfParkingLA.org &copy; 2018-2019</p>
+           </div>
+        </div>
+     
+
     )
   }
 }

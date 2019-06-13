@@ -10,6 +10,7 @@ import MapContainer from './components/MapContainer/MapContainer'
 import Login from './components/Login/Login'
 import * as routes from './constants/routes'
 import NavbarItem from './components/Navbar/Navbar'
+import AllServices from "./components/AllServices/AllServices"
 
 
 import { Col } from 'react-bootstrap'
@@ -101,6 +102,7 @@ class App extends Component {
       }
     }
 
+
     getServices = async() => {
       try{
         const resServices = await fetch('http://localhost:3010/services', {
@@ -109,37 +111,42 @@ class App extends Component {
         const parsedServices = await resServices.json()
         return parsedServices
       }catch(err){
-
       }
     }
 
   render(){
-    const {currentUser} = this.state
+    const {currentUser, allServices} = this.state
     console.log(this.state.allServices)
     return(
-      <div>
+
+      <div className="grid-container">
+      <div className="grid-nav">
         <NavbarItem />
+      </div>
+
+      <div className="grid-main">
         <Switch>
+
           <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
+
+
           <Route exact path={routes.LOGIN} render={() =>
             <Login
               isLogged={this.state.logged}
               doLoginUser={this.doLoginUser}
               doSetCurrentUser={this.doSetCurrentUser}
-              currentUser={currentUser} />}
-          />
+
+              currentUser={currentUser} />}/>
+         
           <Route exact path={routes.ADDSERVICE} render={()=>
-            <AddService createService={this.createService}/>
-          } />
+            <AddService createService={this.createService}/>}/>
 
         </Switch>
-
-
-
+        {/* <AllServices allServices={allServices}/> */}
 
       </div>
-
-
+      <div className="grid-footer"></div>
+      </div>
     )
   }
 }

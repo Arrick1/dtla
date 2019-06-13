@@ -1,6 +1,67 @@
-.mapContainer {
-  margin-top: 120px;
+.grid-container {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  position: relative;
+  grid-template-columns: 100vw;
+  grid-template-rows:  120px auto 120px;
+  /* grid-template-rows: 24px 53px 37px auto 5rem; */
+  grid-template-areas:
+
+  ' nav '
+  ' main '
+  ' footer '
+  ;
+    grid-gap: 0;
+  }
+
+.grid-nav {
+  grid-area: nav;
+  position: fixed;
+  z-index: 50;
+  width: 100vw;
 }
+.grid-main {
+  grid-area: main; 
+  position: relative;
+  margin-bottom: 10vw;
+}
+
+.mapContainer {
+
+  /* margin-top: 120px; */
+  /* background-color: white; */
+  margin: 2vw 0 4vw 0;
+  position: relative;
+}
+
+.UmYeah {
+  /* margin: 5vw; */
+
+  /* position: absolute; */
+  /* padding: 0s 5vw; */
+  /* background-size: cover; */
+  /* background-repeat: no-repeat; */
+}
+
+.map{
+  background-color: transparent;
+  position: relative;
+  /* padding: 10vw !important; */
+  height: 30vw !important;
+  width: 50vw !important;
+  margin: 0 25vw  !important;
+  /* margin-bottom: 10vw; */
+}
+
+/* .Rectangle {
+  width: 1055px;
+  height: 137px;
+  opacity: 0.53;
+  border-radius: 18px;
+  border: solid 1px #979797;
+  background-color: #ffffff;
+} */
 
 .addServiceContainer {
   margin-top: 120px;
@@ -9,7 +70,6 @@
 
 .loginContainer {
   margin-top: 120px;
-  background-color: blue;
 }
 
 .login-btn {
@@ -29,6 +89,8 @@
   border-radius: 18px;
   border: solid 1px #979797;
   background-color: #ffffff;
+  position: flex;
+  z-index: 20;
 }
 
 .sort {
@@ -41,4 +103,63 @@
 .brandLogo{
   width: 198px;
   height: 94px;
+}
+
+@media screen and (max-width: 800px){
+  .grid-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    position: relative;
+    grid-template-columns: 100vw;
+    grid-template-rows:  120px auto;
+    /* grid-template-rows: 24px 53px 37px auto 5rem; */
+    grid-template-areas:
+    /* ' status '
+    ' header ' */
+    ' main '
+    ' nav'
+    'footer'
+    /* ' footer ' */
+    ;
+      grid-gap: 0;
+    }
+    .grid-nav {
+      grid-area: nav;
+      position: relative;
+    }
+}
+
+.category {
+  width: 318.7px;
+  height: 318.8px;
+  border-radius: 16px;
+  background-color: rgba(75, 75, 75, 0.45);
+}
+
+.categories {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  width: 100vmin;
+  grid-gap: 2em;
+  margin-top: 5rem;
+}
+
+.category-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.cat-header {
+  margin-top: 5rem;
+}
+
+.footer {
+  width: 120rem;
+  height: 28rem;
+  background-color: #f6f6f6;
+  position: absolute;
 }
