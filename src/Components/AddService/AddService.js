@@ -25,7 +25,8 @@ class AddService extends Component {
     closing: [],
     hoursTest: '',
   	eligibility:"",
-  	description:""
+  	description:"",
+    categories:''
   }
 
   inputHandler = (e) => {
@@ -55,12 +56,26 @@ class AddService extends Component {
     console.log('hello')
   }
 
+  categorieHandler = (e) => {
+    this.setState({
+      [e.currentTarget.name]: e.currentTarget.value
+    })
+  }
+
   render(){
-    const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
+
+    const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description, categories } = this.state
     return(
       <div className='servicePageContainer'>
       <div></div>
       <Container>
+       <select name='categories' onChange={this.categorieHandler}>
+            <option value='food'>food</option>
+            <option value='selfParking'>Self Parking</option>
+            <option value='shower'>shower</option>
+            <option value='jobs'>jobs</option>
+          </select>
+      
         <Form
           className="serviceContainer" 
           onSubmit={this.submitHandler}>
@@ -180,14 +195,6 @@ class AddService extends Component {
           </Form.Group>
 
           </Form.Row>
-          
-           
-       
-
-        
-        
-      
-
               
           <Form.Group>
             <Form.Label className='display'>Eligibility Requirements: Who in the community do you serve?</Form.Label>

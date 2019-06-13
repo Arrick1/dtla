@@ -23,7 +23,7 @@ router.post('/', async(req,res)=>{
   }
 })
 
-router.get('/', async(req, res)=>{
+router.get('/' , async(req, res)=>{
   try{
     const findServices = await Services.find({})
     res.json({
@@ -34,6 +34,65 @@ router.get('/', async(req, res)=>{
   }
 })
 
-router.get('')
+router.get('/shower', async(req, res)=>{
+  try{
+    const findServices = await Services.find({categories:'shower'})
+    res.json({
+      findServices,
+      success: true
+    })
+  }catch(err){
+    return err
+  }
+})
+
+router.get('/food', async(req, res)=>{
+  try{
+    const findServices = await Services.find({categories:'food'})
+    res.json({
+      findServices,
+      success: true
+    })
+  }catch(err){
+    return err
+  }
+})
+
+router.get('/selfParking', async(req, res)=>{
+  try{
+    const findServices = await Services.find({categories:'selfParking'})
+    res.json({
+      findServices,
+      success: true
+    })
+  }catch(err){
+    return err
+  }
+})
+
+router.get('/jobs', async(req, res)=>{
+  try{
+    const findServices = await Services.find({categories:'jobs'})
+    res.json({
+      findServices,
+      success: true
+    })
+  }catch(err){
+    return err
+  }
+})
+
+router.get('/all' , async(req, res)=>{
+  try{
+    const findServices = await Services.find({})
+    res.json({
+      findServices,
+      success: true
+    })
+  }catch(err){
+    return err
+  }
+})
+
 
 module.exports = router;
