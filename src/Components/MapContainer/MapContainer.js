@@ -48,14 +48,11 @@ export class MapContainer extends Component {
       <div className="mapContainer">
 
 
-<div className="map-wrapper">
-        <div className="image">
+      <div className="map-wrapper">
           <div className="map-header">
             <Place placeSubmit={this.placeSubmit}/>          
-          </div>
-        <form onSubmit={this.categorySubmit}>
-            sort
-            <select name='categories' onChange={this.categoryHandler}>
+          <form onSubmit={this.categorySubmit}>
+            <select name='categories' onChange={this.categoryHandler} placeholder="Categories">
               <option value="all">all</option>
               <option value='food'>food</option>
               <option value='selfParking'>Self Parking</option>
@@ -64,7 +61,7 @@ export class MapContainer extends Component {
             </select>
             <button type='Submit'>Submit</button>
           </form>
-       
+          </div>
         <div className='map'>
           <Map
               google={this.props.google}
@@ -81,7 +78,6 @@ export class MapContainer extends Component {
             </Map>
         </div>
 
-        </div>
       </div>
             {/* <AllServices allServices={this.props.allServices}/> */}
             <div className="sort">
