@@ -82,7 +82,6 @@ class App extends Component {
       <div>
       <Layout> </Layout>
       <NavbarItem />
-      <Col></Col>
       <Switch>
         <Route exact path={routes.HOME} render={() =><MapContainer/>}/>
         <Route exact path={routes.LOGIN} render={() =>
@@ -92,9 +91,8 @@ class App extends Component {
             doSetCurrentUser={this.doSetCurrentUser}
             currentUser={currentUser} />}
           /> 
-        <Route exact path={`${routes.PROFILE}/:id`} render={()=>
-           <Profile 
-           currentUser={currentUser}/>}/>
+      
+    
 
       </Switch>
         
