@@ -159,7 +159,7 @@ class App extends Component {
               <AddService createService={this.createService}/>}/>
 
           </Switch>
-          <AllServices allServices={allServices}/>
+          {/* <AllServices allServices={allServices}/> */}
 
         </div>
         <div className="grid-footer"></div>
