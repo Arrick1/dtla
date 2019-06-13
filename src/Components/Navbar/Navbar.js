@@ -10,7 +10,7 @@ class NavbarItem extends Component {
     render(){
         return(
             <div>
-                <Navbar bg="white"  >
+                <Navbar bg='white' fixed='top' >
 
                     <NavLink to={routes.HOME}>
                         <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>

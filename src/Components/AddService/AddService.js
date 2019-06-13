@@ -3,12 +3,16 @@ import { Redirect } from 'react-router-dom';
 
 
 
+import { Form, Col, Container } from 'react-bootstrap'
+
+
 const time = [1,2,3,4,5,6,7,8,9,10,11,12]
 const dayArr = ['monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday', 'sunday']
 
 class AddService extends Component {
   state = {
     name:"",
+    address: "",
   	city:"",
   	state:"",
   	zip:"",
@@ -51,20 +55,106 @@ class AddService extends Component {
   }
 
   render(){
-    const { name, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
+    const { name, address, city, state, zip, phone, email, web, day, hours, eligibility, description } = this.state
     return(
-      <div className='addServiceContainer'>
-        <form onSubmit={this.submitHandler}>
-          <input type='text' placeholder='name' name='name' value={name} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='city' name='city' value={city} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='state' name='state' value={state} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='zip' name='zip' value={zip} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='phone' name='phone' value={phone} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='email' name='email' value={email} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='web' name='web' value={web} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='eligibility' name='eligibility' value={eligibility} onChange={this.inputHandler}></input>
-          <input type='text' placeholder='description' name='description' value={description} onChange={this.inputHandler}></input>
+      <div className='servicePageContainer'>
+      <Container>
 
+
+        <Form
+          className="serviceContainer" 
+          onSubmit={this.submitHandler}>
+         
+          <Form.Group>
+            <Form.Label className='display'>Organization Name</Form.Label>
+              <input
+                className="input" 
+                type='text' 
+                name='name' 
+                value={name} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+        
+          <Form.Group>
+            <Form.Label className='display'>Street Address</Form.Label>
+              <input
+                className="input" 
+                type='address' 
+                name='address' 
+                value={address} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+
+          <Form.Row>
+            <Form.Group as={Col}>
+              <Form.Label className='display'>City</Form.Label>
+                <input 
+                  className="input"
+                  type='city' 
+                  name='city' 
+                  value={city} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label className='display'>State</Form.Label>
+                <Form.Control as='select'> 
+                  <option>Choose...</option>
+
+                </Form.Control>
+                <input 
+                  type='state' 
+                  placeholder='state'
+                  name='state' 
+                  value={state} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
+
+            <Form.Group as={Col}>
+              <Form.Label className='display'>Zip</Form.Label>
+                <input
+                  className="zipInput" 
+                  type='text' 
+                  placeholder='zip' 
+                  name='zip' 
+                  value={zip} 
+                  onChange={this.inputHandler}/>
+            </Form.Group>
+          </Form.Row>
+
+          <Form.Group>
+            <Form.Label className='display'>Phone</Form.Label>
+              <input
+                className="input" 
+                type='phone'  
+                name='phone' 
+                value={phone} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+        
+          
+          <Form.Group>
+            <Form.Label className='display'>Email</Form.Label>
+              <input 
+                className='input'
+                type='email' 
+                name='email' 
+                value={email} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+          
+          <Form.Group>
+            <Form.Label className='display'>Website</Form.Label>
+              <input 
+                className='input'
+                type='text'  
+                name='web' 
+                value={web} 
+                onChange={this.inputHandler}/>  
+          </Form.Group>
+          
+          <Form.Group>
+            <Form.Label className='display'>Hours</Form.Label>
           {dayArr.map((d,i)=>{
             return <>
               <strong key={i} value={d} name='day'>{d}</strong>
@@ -82,8 +172,44 @@ class AddService extends Component {
               </select>
             </>
           })}
-          <button type='Submit' onClick={this.submitHandler}>Submit</button>
-        </form>
+
+          </Form.Group>
+          
+           
+       
+
+        
+        
+      
+
+              
+          <Form.Group>
+            <Form.Label className='display'>Eligibility Requirements: Who in the community do you serve?</Form.Label>
+              <input
+                className='noteDisplay' 
+                type='text' 
+                name='eligibility' 
+                value={eligibility} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+
+          <Form.Group>
+            <Form.Label className="display"> Services Provided</Form.Label>
+              <input
+                className='noteDisplay'  
+                type='text' 
+                name='description' 
+                value={description} 
+                onChange={this.inputHandler}/>
+          </Form.Group>
+
+         
+          <button
+            className="serviceButton" 
+            type='Submit' 
+            onClick={this.submitHandler}>Submit</button>
+        </Form>
+      </Container>
       </div>
     )
   }
