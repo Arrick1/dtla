@@ -211,3 +211,8 @@
 .footer-links {
   text-align: center;
 }
+
+.navbarContainer {
+  display: flex;
+  justify-content: space-between;
+}

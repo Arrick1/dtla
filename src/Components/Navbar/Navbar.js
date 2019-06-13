@@ -16,13 +16,19 @@ class NavbarItem extends Component {
       const { isLogged, doLogout } = this.props
         return(
             <div>
-                <Navbar bg='white' fixed='top' >
-                    <NavLink to={routes.HOME}>
-                        <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>
-                    </NavLink>
-                    {
-                      isLogged
-                      ? <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn" onClick={this.logOutHandler}> Logout</button> </NavLink> </Nav>
+              <Navbar bg='white' fixed='top' className='navbarContainer'>
+                <NavLink to={routes.HOME}>
+                  <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>
+                </NavLink>
+                {
+                  isLogged
+                    ? (
+                      <Nav>
+                        <NavLink to={'/addservice'}><button><img src='/images/single-01.png'></img></button></NavLink>
+                        <NavLink to={routes.LOGIN}> <button className="login-btn" onClick={this.logOutHandler}> Logout</button> </NavLink>
+                      </Nav>
+
+                    )
                       : (
                         <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink> </Nav>
 
