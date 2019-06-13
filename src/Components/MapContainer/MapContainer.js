@@ -69,6 +69,12 @@ export class MapContainer extends Component {
               lat: 34.0407,
               lng: -118.2468
               }}
+
+              center={{
+                lat: `${lat}`,
+                lng: `${lng}`
+              }}
+              
             style={{width: "100%", height: "100%"}}
             zoom={13}>
             <Marker
