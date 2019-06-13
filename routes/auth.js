@@ -69,9 +69,9 @@ router.get('/logout', (req, res) => {
     })
   })
 
-  
-  
-  
+
+
+
   router.get('/', async(req,res)=>{
       try{
           const getUser = await User.find({})
@@ -87,12 +87,12 @@ router.get('/profile', async (req, res) => {
         res.json({
             user,
             currentUser: req.session.userId,
-            logged: req.session.logged 
+            logged: req.session.logged
         })
     } catch (err) {
         res.send({err})
         console.log({err})
-        
+
     }
 })
 
