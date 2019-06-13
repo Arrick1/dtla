@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import Place from "../Place/Place";
-import "./MapContainer.css";
 
 
 export class MapContainer extends Component {
@@ -14,21 +13,27 @@ export class MapContainer extends Component {
     console.log(this.props.place)
     return(
       <div className="mapContainer">
-        <div className="map">
-        <Place />
-        </div>     
-        <Map
+      
+      <div className="UmYeah">
+      <Place />
+       
+        <div className='map'>
+          <Map
           google={this.props.google}
           initialCenter={{
               lat: 34.0407,
               lng: -118.2468
           }}
-          style={{width: "1055px", height: "620px"}}
+          style={{width: "100%", height: "100%"}}
           zoom={13}
         />
-        <Marker/>
+        </div>
 
       </div>
+           <Marker/>
+        </div>
+     
+
     )
   }
 }
