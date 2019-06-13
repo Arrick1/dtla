@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import AllServices from '../AllServices/AllServices';
 import { Accordion, Card, DropdownButton } from "react-bootstrap";
+import Place from '../Place/Place'
 
 
 

@@ -16,7 +16,7 @@ class NavbarItem extends Component {
       const { isLogged, doLogout } = this.props
         return(
             <div>
-                <Navbar bg='white' fixed='top' >
+                <div className='navbarContainer' >
                     <NavLink to={routes.HOME}>
                         <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>
                     </NavLink>
@@ -28,7 +28,7 @@ class NavbarItem extends Component {
 
                       )
                     }
-                </Navbar>
+                </div>
             </div>
         )
     }
