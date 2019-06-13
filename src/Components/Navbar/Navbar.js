@@ -13,7 +13,7 @@ class NavbarItem extends Component {
   }
 
     render(){
-      const { isLogged, doLogout } = this.props
+      const { isLogged } = this.props
         return(
             <div>
                 <div className='navbarContainer' >
@@ -21,13 +21,19 @@ class NavbarItem extends Component {
                         <Navbar.Brand><img className="brandLogo" src='/images/LOGO_PNG.png'></img></Navbar.Brand>
                     </NavLink>
                     {
-                      isLogged
-                      ? <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn" onClick={this.logOutHandler}> Logout</button> </NavLink> </Nav>
-                      : (
-                        <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink> </Nav>
+                  isLogged
+                    ? (
+                      <Nav>
+                        <NavLink to={'/addservice'}><button><img src='/images/single-01.png'></img></button></NavLink>
+                        <NavLink to={routes.LOGIN}> <button className="login-btn" onClick={this.logOutHandler}> Logout</button> </NavLink>
+                      </Nav>
 
-                      )
-                    }
+                    )
+                    : (
+                      <Nav> <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink> </Nav>
+
+                    )
+                }
                 </div>
             </div>
         )
