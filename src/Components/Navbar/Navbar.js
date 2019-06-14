@@ -33,7 +33,7 @@ class NavbarItem extends Component {
                     )
                     : (
                       <Nav>
-                        <NavLink to={routes.GETINVOLVED}> <button className="login-btn"> Get Involved</button> </NavLink> 
+                        <NavLink to={routes.GETINVOLVED}> <button className="involeved-btn"> Get Involved</button> </NavLink> 
                         <NavLink to={routes.LOGIN}> <button className="login-btn"> Login</button> </NavLink>
                       </Nav>
 

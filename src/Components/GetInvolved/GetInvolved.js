@@ -13,7 +13,7 @@ class GetInvolved extends Component{
     return(
       <GetStyle>
         <div>
-          
+          <h1>Get Involved</h1>
         </div>
       </GetStyle>
 
