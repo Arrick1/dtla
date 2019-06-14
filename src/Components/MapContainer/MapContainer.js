@@ -2,9 +2,6 @@ import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import { Accordion, Card, DropdownButton } from "react-bootstrap";
 import Place from '../Place/Place'
-
-
-
 export class MapContainer extends Component {
   state = {
     address: '',
@@ -12,25 +9,21 @@ export class MapContainer extends Component {
     lng: '-118.2468',
     categories:''
   }
-
   coordinatesChange = (info) => {
     this.setState({
       lat:info.lat,
       lng:info.lng
     })
   }
-
   categoryHandler = (e) => {
     this.setState({
       [e.currentTarget.name]: e.currentTarget.value
     })
   }
-
   categorySubmit = (e) => {
     e.preventDefault()
     this.props.filterServices(this.state)
   }
-
   placeSubmit = (info) => {
     console.log(info, 'infooooo')
     this.setState({
@@ -39,20 +32,15 @@ export class MapContainer extends Component {
     })
     console.log('placeSubmit working')
   }
-
   render(){
     const { address, lng, lat } = this.state
     const { allServices } = this.props
     console.log('all services>>>>>>>',this.props.allServices )
     return(
       <div className="mapContainer">
-
-
         <div className="map-wrapper">
-          <div className="image">
             <div className="map-header">
               <Place placeSubmit={this.placeSubmit}/>
-            </div>
             <form onSubmit={this.categorySubmit}>
               sort
               <select name='categories' onChange={this.categoryHandler}>
@@ -64,7 +52,7 @@ export class MapContainer extends Component {
               </select>
               <button type='Submit'>Submit</button>
             </form>
-
+            </div>
             <div className='map'>
               <Map
                 google={this.props.google}
@@ -84,16 +72,11 @@ export class MapContainer extends Component {
                   position={{lat: `${lat}`, lng: `${lng}`}} />
               </Map>
             </div>
-
-          </div>
         </div>
-
-
         <div className="sort">
           <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
         </div>
         <Accordion defaultActiveKey="0">
-
           {
             allServices.map((s,i)=>{
               return (
@@ -114,25 +97,24 @@ export class MapContainer extends Component {
               )
             })}
         </Accordion>
-           <div className="category-wrapper">
-            <h1 className="cat-header">Categories</h1>
-              <div className="categories">
-                <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
-                <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
-                <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
-                <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
-                <img className="category" src="/images/alert-attention-caution-2217145.jpg"></img>
-                <img className="category" src="/images/adult-brainstorming-businesswoman-515169.jpg"></img>
-                <img className="category" src="/images/blackboard-chairs-chalk-159844.jpg"></img>
-                <img className="category" src="/images/buildings-bus-chicago-2181194.jpg"></img>
-                <img className="category" src="/images/care-check-checkup-905874.jpg"></img>
-              </div>
+        <div className="category-wrapper">
+          <h1 className="cat-header">Categories</h1>
+          <div className="categories">
+            <img className="category" src="/images/bed-bedroom-color-212269.jpg"></img>
+            <img className="category" src="/images/carrots-carrying-colorful-1389103.jpg"></img>
+            <img className="category" src="/images/bathroom-bathtub-bottles-2008269.jpg"></img>
+            <img className="category" src="/images/aerial-aerial-shot-aerial-view-753876.jpg"></img>
+            <img className="category" src="/images/alert-attention-caution-2217145.jpg"></img>
+            <img className="category" src="/images/adult-brainstorming-businesswoman-515169.jpg"></img>
+            <img className="category" src="/images/blackboard-chairs-chalk-159844.jpg"></img>
+            <img className="category" src="/images/buildings-bus-chicago-2181194.jpg"></img>
+            <img className="category" src="/images/care-check-checkup-905874.jpg"></img>
+          </div>
            </div>
         </div>
     )
   }
 }
-
 export default GoogleApiWrapper({
   apiKey: ("AIzaSyBHLett8djBo62dDXj0EjCimF8Rd6E8cxg")
 })(MapContainer)
