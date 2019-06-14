@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import {Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import AllServices from '../AllServices/AllServices';
 import { Accordion, Card, DropdownButton } from "react-bootstrap";
 import Place from '../Place/Place'
 
@@ -88,7 +87,7 @@ export class MapContainer extends Component {
 
           </div>
         </div>
-        {/* <AllServices allServices={this.props.allServices}/> */}
+
 
         <div className="sort">
           <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
@@ -115,25 +114,6 @@ export class MapContainer extends Component {
               )
             })}
         </Accordion>
-
-        {/* <Accordion defaultActiveKey="0">
-          <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="1">
-          first org name
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="1">
-          <Card.Body>sample test</Card.Body>
-            </Accordion.Collapse>
-          </Card>
-          <Card>
-            <Accordion.Toggle as={Card.Header} eventKey="2">
-          sample org name
-            </Accordion.Toggle>
-            <Accordion.Collapse eventKey="2">
-          <Card.Body>Some Text</Card.Body>
-            </Accordion.Collapse>
-          </Card>
-        </Accordion> */}
            <div className="category-wrapper">
             <h1 className="cat-header">Categories</h1>
               <div className="categories">
