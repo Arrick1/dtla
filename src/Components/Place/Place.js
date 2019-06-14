@@ -27,13 +27,13 @@ class Place extends Component {
           <div>
             <form onSubmit={this.submitHandler}>
               <GoogleComponent
-                className="Rectangle"
+                className="rectangle"
                 apiKey={API_KEY}
                 language={'en'}
                 country={'country:us'}
                 coordinates={true}
-                locationBoxStyle={'custom-style'}
-                locationListStyle={'custom-style-list'}
+                // locationBoxStyle={'custom-style'}
+                // locationListStyle={'custom-style-list'}
                 onChange={this.inputHandler} />
             </form>
 

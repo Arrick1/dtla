@@ -43,7 +43,8 @@ export class MapContainer extends Component {
 
   render(){
     const { address, lng, lat } = this.state
-    console.log(lng, "lngggg", lat, "lattttt")
+    const { allServices } = this.props
+    console.log('all services>>>>>>>',this.props.allServices )
     return(
       <div className="mapContainer">
 
@@ -88,27 +89,51 @@ export class MapContainer extends Component {
           </div>
         </div>
         {/* <AllServices allServices={this.props.allServices}/> */}
+
         <div className="sort">
-              <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
-            </div>
-          <Accordion defaultActiveKey="0">
-              <Card>
-                <Accordion.Toggle as={Card.Header} eventKey="1">
-                  Hi Jomar
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey="1">
-                  <Card.Body>FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!!</Card.Body>
-                </Accordion.Collapse>
-              </Card>
-              <Card>
-                <Accordion.Toggle as={Card.Header} eventKey="2">
-                  Hi Jomar
-                </Accordion.Toggle>
-                <Accordion.Collapse eventKey="2">
-                  <Card.Body>FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!! <br/> FUCK YOU JOMAR!!!</Card.Body>
-                </Accordion.Collapse>
-              </Card>
-          </Accordion>
+          <DropdownButton id="dropdown-item-button" title="Sort by relevance"></DropdownButton>
+        </div>
+        <Accordion defaultActiveKey="0">
+
+          {
+            allServices.map((s,i)=>{
+              return (
+                <Card>
+                  <Accordion.Toggle as={Card.Header} eventKey={i+1}>
+                    {s.name}
+                  </Accordion.Toggle>
+                  <Accordion.Collapse eventKey={i+1}>
+                    <Card.Body>
+                      {s.address + " " +s.city} <br/>
+                      {s.phone} <br/>
+                      {s.web} <br/>
+                      {s.eligibility} <br/>
+                      {s.description} <br/>
+                    </Card.Body>
+                  </Accordion.Collapse>
+                </Card>
+              )
+            })}
+        </Accordion>
+
+        {/* <Accordion defaultActiveKey="0">
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="1">
+          first org name
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="1">
+          <Card.Body>sample test</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="2">
+          sample org name
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="2">
+          <Card.Body>Some Text</Card.Body>
+            </Accordion.Collapse>
+          </Card>
+        </Accordion> */}
            <div className="category-wrapper">
             <h1 className="cat-header">Categories</h1>
               <div className="categories">

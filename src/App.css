@@ -28,10 +28,6 @@
   position: relative;
 }
 
-.map-wrapper {
- background: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg");
-}
-
 .map{
   background-color: transparent;
   position: relative;
@@ -54,7 +50,6 @@
 .map {
   width: 1055px;
   height: 137px;
-  opacity: 0.53;
   border-radius: 18px;
   border: solid 1px #979797;
   background-color: #ffffff;
@@ -235,9 +230,19 @@
   border: solid 1px #454545;
   background-color: #000000;
   color: white;
-  margin-top: 27px
+  margin: 27px 27px 27px 0;
 }
 
+.involeved-btn {
+  justify-content: end;
+  width: 193px;
+  height: 48px;
+  border-radius: 18px;
+  border: solid 1px #454545;
+  background-color: white;
+  color: black;
+  margin: 27px
+}
 
 /* <-----------  Login Modal CSS  -----------> */
 
@@ -281,10 +286,26 @@
  }
 
  .map-header {
-  width: 1055px;
+  width: 60rem;
   height: 137px;
   opacity: 0.53;
-  border-radius: 18px;
+  border-radius: 5px;
   border: solid 1px #979797;
   background-color: #ffffff;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+ }
+
+ .map-wrapper {
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   background-image: url("/images/angel-watch-sunset-colors-landscape-2043837.jpg");
+   background-size: cover;
+   background-position: center;
+   height: 100vh;
  }
